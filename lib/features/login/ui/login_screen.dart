@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/helpers/constants.dart';
 import '../../../core/helpers/spacing.dart';
 import '../../../core/theming/styles.dart';
 import '../../../core/widgets/app_text_button.dart';
@@ -9,7 +10,6 @@ import '../logic/cubit/login_cubit.dart';
 import 'widgets/dont_have_account_text.dart';
 import 'widgets/email_and_password.dart';
 import 'widgets/login_bloc_listner.dart';
-import 'widgets/terms_ans_conditions_text.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -30,14 +30,12 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Welcome Back',
-                style: Styles.font24BlueBold,
-              ),
-              verticalSpace(8),
-              Text(
-                  'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',
-                  style: Styles.font14LightGreyRegular),
+          Center(
+            child: Image.asset(Constants.loginLogo,
+                   width: 128.w,
+                   height: 95.h,
+            ),
+          ),
               verticalSpace(36),
               Column(
                 children: [
@@ -58,8 +56,7 @@ class LoginScreen extends StatelessWidget {
                       validateThenDoLogin(context);
                     },
                   ),
-                  verticalSpace(16),
-                  const TermsAndConditionsText(),
+        
                   verticalSpace(55),
                   const DontHaveAccountText(),
                   const LoginBlocListener(),

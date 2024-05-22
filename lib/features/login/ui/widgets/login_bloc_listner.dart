@@ -35,7 +35,7 @@ class LoginBlocListener extends StatelessWidget {
             context.pushNamed(Routes.homeScreen);
           },
           error: (error) {
-            setupErrorState(context, error);
+            setupErrorState(context, "حدث خطأ أثناء تسجيل الدخول\nحاول مرة أخرى");
           },
         );
       },

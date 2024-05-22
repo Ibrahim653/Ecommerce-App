@@ -15,11 +15,11 @@ class DontHaveAccountText extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: 'Don\'t have an account?',
+            text: 'ليس لديك حساب ؟',
             style: Styles.font13DarkBlueRegular,
           ),
           TextSpan(
-            text: ' Sign Up',
+            text: ' التسجيل',
             style: Styles.font13BlueSemiBold,
               recognizer: TapGestureRecognizer()
               ..onTap = () {
