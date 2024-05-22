@@ -53,29 +53,17 @@ class _RegisterFormState extends State<RegisterForm> {
       child: Column(
         children: [
           CustomTextFormField(
-            title: 'Name',
+            title: 'اسم المستخدم',
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid name';
               }
             },
-            controller: context.read<RegisterCubit>().nameController,
+            controller: context.read<RegisterCubit>().usernameController,
           ),
           verticalSpace(18),
           CustomTextFormField(
-            title: 'Phone number',
-            validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isPhoneNumberValid(value)) {
-                return 'Please enter a valid phone number';
-              }
-            },
-            controller: context.read<RegisterCubit>().phoneController,
-          ),
-          verticalSpace(18),
-          CustomTextFormField(
-            title: 'Email',
+            title: 'البريد الإلكترونى',
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
@@ -87,8 +75,27 @@ class _RegisterFormState extends State<RegisterForm> {
           ),
           verticalSpace(18),
           CustomTextFormField(
+            title: 'الاسم الأول',
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid phone number';
+              }
+            },
+            controller: context.read<RegisterCubit>().firstNameController,
+          ),
+          CustomTextFormField(
+            title: 'الاسم الأخير',
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid phone number';
+              }
+            },
+            controller: context.read<RegisterCubit>().lastNameController,
+          ),
+          verticalSpace(18),
+          CustomTextFormField(
             controller: context.read<RegisterCubit>().passwordController,
-            title: 'Password',
+            title: 'كلمة السر',
             obsecureText: isPasswordObscureText,
             suffexIcon: GestureDetector(
               onTap: () {
@@ -108,9 +115,8 @@ class _RegisterFormState extends State<RegisterForm> {
           ),
           verticalSpace(18),
           CustomTextFormField(
-            controller:
-                context.read<RegisterCubit>().passwordConfirmationController,
-            title: 'Password Confirmation',
+            // controller:,       //TODO: add confirmation password
+            title: 'تأكيد كلمة السر',
             obsecureText: isPasswordConfirmationObscureText,
             suffexIcon: GestureDetector(
               onTap: () {

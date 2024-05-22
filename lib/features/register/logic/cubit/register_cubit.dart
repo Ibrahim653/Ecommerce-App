@@ -10,24 +10,22 @@ class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit(this._registerRepo) : super(const RegisterState.initial());
 
   TextEditingController passwordController = TextEditingController();
-  TextEditingController passwordConfirmationController =
-      TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController genderController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   void emitRegisterSatate() async {
     emit(const RegisterState.loading());
     final response = await _registerRepo.register(
       RegisterRequestBody(
-        name: nameController.text,
+        
+        username: usernameController.text,
         email: emailController.text,
         password: passwordController.text,
-        phone: phoneController.text,
-        gender: 0,
-        passwordConfimation: passwordConfirmationController.text,
+        firstName: firstNameController.text,
+        lastName: lastNameController.text,
       ),
     );
     response.when(

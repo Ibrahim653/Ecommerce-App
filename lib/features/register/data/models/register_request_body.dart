@@ -3,21 +3,20 @@ part 'register_request_body.g.dart';
 
 @JsonSerializable()
 class RegisterRequestBody {
-  final String name;
-  final String email;
+  final String username;
   final String password;
-  final String phone;
-  final int gender;
-  @JsonKey(name: 'password_confirmation')
-  final String passwordConfimation;
+  final String email;
+  @JsonKey(name: 'first_name')
+  final String firstName;
+  @JsonKey(name: 'last_name')
+  final String lastName;
 
   RegisterRequestBody({
-    required this.email,
+    required this.username,
     required this.password,
-    required this.name,
-    required this.phone,
-    required this.gender,
-    required this.passwordConfimation,
+    required this.email,
+    required this.firstName,
+    required this.lastName,
   });
   Map<String, dynamic> toJson() => _$RegisterRequestBodyToJson(this);
 }

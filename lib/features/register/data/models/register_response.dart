@@ -3,24 +3,54 @@ part 'register_response.g.dart';
 
 @JsonSerializable()
 class RegisterResponse {
-  String? message;
-  @JsonKey(name: 'data')
-  UserData? userData;
-  bool? status;
-  int? code;
-  RegisterResponse(this.message, this.userData, this.status, this.code);
+  final User user;
+  final String message;
+
+  RegisterResponse({required this.user, required this.message});
 
   factory RegisterResponse.fromJson(Map<String, dynamic> json) =>
       _$RegisterResponseFromJson(json);
 }
 
 @JsonSerializable()
-class UserData {
-  String? token;
-  @JsonKey(name: 'username')
-  String? userName;
-  UserData(this.token, this.userName);
+class User {
+  final int id;
+  @JsonKey(name: 'last_login')
+  final String? lastLogin;
+  @JsonKey(name: 'is_superuser')
+  final bool isSuperUser;
+  final String username;
+  @JsonKey(name: 'first_name')
+  final String firstName;
+  @JsonKey(name: 'last_name')
+  final String lastName;
+  @JsonKey(name: 'email')
+  final String email;
+  @JsonKey(name: 'is_staff')
+  final bool isStaff;
+  @JsonKey(name: 'is_active')
+  final bool isActive;
+  @JsonKey(name: 'date_joined')
+  final String dateJoined;
+  @JsonKey(name: 'groups')
+  final List<dynamic> groups;
+  @JsonKey(name: 'user_permissions')
+  final List<dynamic> userPermissions;
 
-  factory UserData.fromJson(Map<String, dynamic> json) =>
-      _$UserDataFromJson(json);
+  User({
+    required this.id,
+    this.lastLogin,
+    required this.isSuperUser,
+    required this.username,
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    required this.isStaff,
+    required this.isActive,
+    required this.dateJoined,
+    required this.groups,
+    required this.userPermissions,
+  });
+
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

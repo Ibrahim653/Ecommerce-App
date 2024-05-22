@@ -8,21 +8,19 @@ part of 'register_request_body.dart';
 
 RegisterRequestBody _$RegisterRequestBodyFromJson(Map<String, dynamic> json) =>
     RegisterRequestBody(
-      email: json['email'] as String,
+      username: json['username'] as String,
       password: json['password'] as String,
-      name: json['name'] as String,
-      phone: json['phone'] as String,
-      gender: (json['gender'] as num).toInt(),
-      passwordConfimation: json['password_confirmation'] as String,
+      email: json['email'] as String,
+      firstName: json['first_name'] as String,
+      lastName: json['last_name'] as String,
     );
 
 Map<String, dynamic> _$RegisterRequestBodyToJson(
         RegisterRequestBody instance) =>
     <String, dynamic>{
-      'name': instance.name,
-      'email': instance.email,
+      'username': instance.username,
       'password': instance.password,
-      'phone': instance.phone,
-      'gender': instance.gender,
-      'password_confirmation': instance.passwordConfimation,
+      'email': instance.email,
+      'first_name': instance.firstName,
+      'last_name': instance.lastName,
     };
