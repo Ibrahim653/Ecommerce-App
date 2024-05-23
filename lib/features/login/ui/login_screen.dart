@@ -27,42 +27,43 @@ class LoginScreen extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-          Center(
-            child: Image.asset(Constants.loginLogo,
-                   width: 128.w,
-                   height: 95.h,
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  Constants.loginLogo,
+                  width: 128.w,
+                  height: 95.h,
+                ),
+                verticalSpace(39),
+                Text(
+                  'تسجيل الدخول',
+                  style: Styles.font19PinkBold,
+                ),
+                verticalSpace(13),
+                Text(
+                  'من فضلك قم بالدخول لإتمام الشراء',
+                  style: Styles.font14GreyMedium,
+                ),
+                verticalSpace(48),
+                const EmailAndPassword(),
+              
+              
+                verticalSpace(29),
+                AppTextButton(
+                  buttonText: 'الدخول',
+                  textStyle: Styles.font16WhiteBold,
+                  onPressed: () {
+                    validateThenDoLogin(context);
+                  },
+                ),
+                verticalSpace(32),
+                const DontHaveAccountText(),
+                const LoginBlocListener()
+              ],
             ),
-          ),
-              verticalSpace(36),
-              Column(
-                children: [
-                  const EmailAndPassword(),
-                  verticalSpace(24),
-                  Align(
-                    alignment: AlignmentDirectional.centerEnd,
-                    child: Text(
-                      'Forget Password',
-                      style: Styles.font13BlueRegular,
-                    ),
-                  ),
-                  verticalSpace(40),
-                  AppTextButton(
-                    buttonText: 'Login',
-                    textStyle: Styles.font16WhiteMedium,
-                    onPressed: () {
-                      validateThenDoLogin(context);
-                    },
-                  ),
-        
-                  verticalSpace(55),
-                  const DontHaveAccountText(),
-                  const LoginBlocListener(),
-                ],
-              )
-            ],
           ),
         ),
       ),

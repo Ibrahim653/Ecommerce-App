@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/helpers/constants.dart';
 import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:e_commerce_app/core/theming/colors.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,12 @@ class EcommerceApp extends StatelessWidget {
       //  splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        
         title: 'Ecommerce App',
         theme: ThemeData(
+         colorScheme: ColorScheme.fromSwatch(backgroundColor: ColorsManager.appBackgroundColor),
           primaryColor: ColorsManager.mainBlue,
+          fontFamily: Constants.fontFamily
         ),
         onGenerateRoute: appRouter.generateRoute,
         initialRoute: Routes.loginScreen,

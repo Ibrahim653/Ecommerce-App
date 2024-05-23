@@ -5,11 +5,40 @@ import 'colors.dart';
 import 'font_weight_helper.dart';
 
 class Styles {
-  static TextStyle font24BlackBold = TextStyle(
-    fontSize: 24.sp,
+  static TextStyle font19PinkBold = TextStyle(
+    fontSize: 19.sp,
     fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
+    color: ColorsManager.secondaryPink,
   );
+  static TextStyle font14GreyMedium = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.textGrey,
+  );
+
+  static TextStyle font14CyanBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.primaryCyan,
+  );
+    static TextStyle font16WhiteBold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.white,
+  );
+static TextStyle font18PinkBold = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.secondaryPink,
+  );
+
+
+
+
+
+
+
+
 
   static TextStyle font32BlueBold = TextStyle(
     fontSize: 32.sp,
@@ -47,11 +76,7 @@ class Styles {
     color: Colors.white,
   );
 
-  static TextStyle font13GreyRegular = TextStyle(
-    fontSize: 13.sp,
-    fontWeight: FontWeightHelper.regular,
-    color: ColorsManager.grey,
-  );
+
 
   static TextStyle font13BlueRegular = TextStyle(
     fontSize: 13.sp,
@@ -62,7 +87,7 @@ class Styles {
   static TextStyle font14GreyRegular = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.regular,
-    color: ColorsManager.grey,
+    color: ColorsManager.textGrey,
   );
 
   static TextStyle font14LightGreyRegular = TextStyle(
@@ -82,17 +107,15 @@ class Styles {
     color: Colors.white,
   );
 
-
- static TextStyle font15DarkBlueMedium = TextStyle(
+  static TextStyle font15DarkBlueMedium = TextStyle(
     fontSize: 15.sp,
     fontWeight: FontWeightHelper.medium,
     color: ColorsManager.darkBlue,
   );
 
- static TextStyle font14BlueSemiBold = TextStyle(
+  static TextStyle font14BlueSemiBold = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.semiBold,
     color: ColorsManager.mainBlue,
   );
-
 }

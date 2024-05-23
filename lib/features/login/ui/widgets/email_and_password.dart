@@ -1,9 +1,9 @@
+import 'package:e_commerce_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../logic/cubit/login_cubit.dart';
 
@@ -22,35 +22,53 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
     return Form(
       key: context.read<LoginCubit>().formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Text(
+              'اسم المستخدم',
+              style: Styles.font14GreyMedium,
+            ),
+          ),
           CustomTextFormField(
-            title: 'Email',
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'please enter a valid email';
+                return 'برجاء إدخال اسم مستخدم صحيح';
               }
             },
             controller: context.read<LoginCubit>().emailController,
           ),
-          verticalSpace(18.h),
+          verticalSpace(16.h),
+           Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Text(
+              'كلمة السر',
+              style: Styles.font14GreyMedium,
+            ),
+          ),
           CustomTextFormField(
             controller: context.read<LoginCubit>().passwordController,
             obsecureText: isObsecure,
-            suffexIcon: IconButton(
-              color: ColorsManager.mainBlue,
-              onPressed: () {
+            suffexIcon: GestureDetector(
+              onTap: () {
                 setState(() {
                   isObsecure = !isObsecure;
                 });
               },
-              icon: isObsecure
-                  ? const Icon(Icons.visibility_off)
-                  : const Icon(Icons.visibility),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0), 
+                child: Icon(
+                  isObsecure ? Icons.visibility_off : Icons.visibility,
+                  color: Colors.black54,
+                  size: 23.sp, 
+                ),
+              ),
             ),
             title: 'Password',
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'please enter a valid password';
+                return 'كلمة السر غير صحيحة';
               }
             },
           ),

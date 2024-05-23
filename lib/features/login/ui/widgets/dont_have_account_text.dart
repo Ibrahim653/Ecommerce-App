@@ -1,6 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/helpers/extensions.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/styles.dart';
@@ -10,24 +8,25 @@ class DontHaveAccountText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: 'ليس لديك حساب ؟',
-            style: Styles.font13DarkBlueRegular,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'ليس لديك حساب ؟',
+          style: Styles.font14GreyMedium.copyWith(
           ),
-          TextSpan(
-            text: ' التسجيل',
-            style: Styles.font13BlueSemiBold,
-              recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                context.pushReplacementNamed(Routes.registerScreen);
-              },
+        ),
+        GestureDetector(
+          onTap: () {
+            context.pushReplacementNamed(Routes.registerScreen);
+          },
+          child: Text(
+            ' التسجيل',
+            style: Styles.font18PinkBold.copyWith(
+            ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
