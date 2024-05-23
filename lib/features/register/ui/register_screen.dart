@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/helpers/constants.dart';
 import '../../../core/helpers/spacing.dart';
 import '../../../core/theming/styles.dart';
 import '../../../core/widgets/app_text_button.dart';
@@ -16,45 +17,43 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
-          child: SingleChildScrollView(
-            child: Directionality(
-              textDirection: TextDirection.rtl,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Create Account',
-                    style: Styles.font24BlueBold,
-                  ),
-                  verticalSpace(8),
-                  Text(
-                    'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
-                    style: Styles.font14GreyRegular,
-                  ),
-                  verticalSpace(36),
-                  Column(
-                    children: [
-                      const RegisterForm(),
-                      verticalSpace(40),
-                      AppTextButton(
-                        buttonText: "Create Account",
-                        textStyle: Styles.font16WhiteSemiBold,
-                        onPressed: () {
-                          validateThenDoSignup(context);
-                        },
-                      ),
-                      verticalSpace(16),
-                
-                      verticalSpace(30),
-                      const AlreadyHaveAccountText(),
-                      const RegisterBlocListner(),
-                    ],
-                  ),
-                ],
-              ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 26.w, vertical: 54.h),
+        child: SingleChildScrollView(
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  Constants.registerLogo,
+                  width: 130.w,
+                  height: 96.h,
+                ),
+                verticalSpace(32),
+                Text(
+                  'حساب جديد',
+                  style: Styles.font19PinkBold,
+                ),
+                verticalSpace(13),
+                Text(
+                  'مرحبا بك ، قم بملأ البيانات للتسجيل',
+                  style: Styles.font14GreyMedium,
+                ),
+                verticalSpace(44),
+                const RegisterForm(),
+                verticalSpace(33),
+                AppTextButton(
+                  buttonText: "التسجيل",
+                  textStyle: Styles.font16WhiteBold,
+                  onPressed: () {
+                    validateThenDoSignup(context);
+                  },
+                ),
+                verticalSpace(32),
+                const AlreadyHaveAccountText(),
+                const RegisterBlocListner(),
+              ],
             ),
           ),
         ),

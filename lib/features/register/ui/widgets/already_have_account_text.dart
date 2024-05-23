@@ -1,5 +1,3 @@
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/helpers/extensions.dart';
@@ -11,24 +9,23 @@ class AlreadyHaveAccountText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: 'Already have an account?',
-            style: Styles.font13DarkBlueRegular,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'لديك حساب ؟',
+          style: Styles.font16GreyMedium,
+        ),
+        GestureDetector(
+          onTap: () {
+            context.pushReplacementNamed(Routes.loginScreen);
+          },
+          child: Text(
+            ' الدخول',
+            style: Styles.font18PinkBold,
           ),
-          TextSpan(
-            text: ' Login',
-            style: Styles.font13BlueSemiBold,
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                context.pushReplacementNamed(Routes.loginScreen);
-              },
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

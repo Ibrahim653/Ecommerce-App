@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../logic/cubit/register_cubit.dart';
 
@@ -22,51 +23,83 @@ class _RegisterFormState extends State<RegisterForm> {
     return Form(
       key: context.read<RegisterCubit>().formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Text(
+              'اسم المستخدم',
+              style: Styles.font14GreyMedium,
+            ),
+          ),
           CustomTextFormField(
-            title: 'اسم المستخدم',
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid name';
+                return 'هذا الحقل مطلوب';
               }
             },
             controller: context.read<RegisterCubit>().usernameController,
           ),
-          verticalSpace(18),
+          verticalSpace(12),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Text(
+              'البريد الالكتروني',
+              style: Styles.font14GreyMedium,
+            ),
+          ),
           CustomTextFormField(
-            title: 'البريد الإلكترونى',
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
+                return 'هذا الحقل مطلوب';
               }
             },
             controller: context.read<RegisterCubit>().emailController,
           ),
-          verticalSpace(18),
+          verticalSpace(12),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Text(
+              'الاسم الأول',
+              style: Styles.font14GreyMedium,
+            ),
+          ),
           CustomTextFormField(
-            title: 'الاسم الأول',
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid phone number';
+                return 'هذا الحقل مطلوب';
               }
             },
             controller: context.read<RegisterCubit>().firstNameController,
           ),
+          verticalSpace(12),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Text(
+              'الاسم الأخير',
+              style: Styles.font14GreyMedium,
+            ),
+          ),
           CustomTextFormField(
-            title: 'الاسم الأخير',
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid phone number';
+                return 'هذا الحقل مطلوب';
               }
             },
             controller: context.read<RegisterCubit>().lastNameController,
           ),
           verticalSpace(18),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Text(
+              'كلمة السر',
+              style: Styles.font14GreyMedium,
+            ),
+          ),
           CustomTextFormField(
             controller: context.read<RegisterCubit>().passwordController,
-            title: 'كلمة السر',
             obsecureText: isPasswordObscureText,
             suffexIcon: GestureDetector(
               onTap: () {
@@ -74,20 +107,32 @@ class _RegisterFormState extends State<RegisterForm> {
                   isPasswordObscureText = !isPasswordObscureText;
                 });
               },
-              child: Icon(
-                isPasswordObscureText ? Icons.visibility_off : Icons.visibility,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                  isPasswordObscureText
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: Colors.black54,
+                  size: 23.sp,
+                ),
               ),
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid password';
+                return 'هذا الحقل مطلوب';
               }
             },
           ),
           verticalSpace(18),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Text(
+              'تأكيد كلمة السر',
+              style: Styles.font14GreyMedium,
+            ),
+          ),
           CustomTextFormField(
-            // controller:,       //TODO: add confirmation password
-            title: 'تأكيد كلمة السر',
             obsecureText: isPasswordConfirmationObscureText,
             suffexIcon: GestureDetector(
               onTap: () {
@@ -96,16 +141,24 @@ class _RegisterFormState extends State<RegisterForm> {
                       !isPasswordConfirmationObscureText;
                 });
               },
-              child: Icon(
-                isPasswordConfirmationObscureText
-                    ? Icons.visibility_off
-                    : Icons.visibility,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                  isPasswordObscureText
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: Colors.black54,
+                  size: 23.sp,
+                ),
               ),
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid password';
+                return 'هذا الحقل مطلوب';
+              } else if (value != context.read<RegisterCubit>().passwordController.text) {
+                return 'كلمة السر غير متطابقة';
               }
+              return null; 
             },
           ),
         ],
