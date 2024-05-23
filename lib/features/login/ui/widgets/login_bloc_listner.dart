@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 import '../../../../core/helpers/extensions.dart';
 import '../../../../core/routing/routes.dart';
@@ -35,7 +33,8 @@ class LoginBlocListener extends StatelessWidget {
             context.pushNamed(Routes.homeScreen);
           },
           error: (error) {
-            setupErrorState(context, "حدث خطأ أثناء تسجيل الدخول\nحاول مرة أخرى");
+            setupErrorState(
+                context, "حدث خطأ أثناء تسجيل الدخول\nحاول مرة أخرى");
           },
         );
       },

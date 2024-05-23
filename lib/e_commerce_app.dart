@@ -17,15 +17,14 @@ class EcommerceApp extends StatelessWidget {
       //  splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        
         title: 'Ecommerce App',
         theme: ThemeData(
-         colorScheme: ColorScheme.fromSwatch(backgroundColor: ColorsManager.appBackgroundColor),
-          primaryColor: ColorsManager.mainBlue,
-          fontFamily: Constants.fontFamily
-        ),
+            colorScheme: ColorScheme.fromSwatch(
+                backgroundColor: ColorsManager.appBackgroundColor),
+            primaryColor: ColorsManager.mainBlue,
+            fontFamily: Constants.fontFamily),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.loginScreen,
+        initialRoute: Routes.homeScreen,
       ),
     );
   }

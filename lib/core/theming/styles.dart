@@ -25,24 +25,16 @@ class Styles {
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.primaryCyan,
   );
-    static TextStyle font16WhiteBold = TextStyle(
+  static TextStyle font16WhiteBold = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.white,
   );
-static TextStyle font18PinkBold = TextStyle(
+  static TextStyle font18PinkBold = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.secondaryPink,
   );
-
-
-
-
-
-
-
-
 
   static TextStyle font32BlueBold = TextStyle(
     fontSize: 32.sp,
@@ -79,8 +71,6 @@ static TextStyle font18PinkBold = TextStyle(
     fontWeight: FontWeightHelper.semiBold,
     color: Colors.white,
   );
-
-
 
   static TextStyle font13BlueRegular = TextStyle(
     fontSize: 13.sp,

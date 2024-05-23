@@ -20,7 +20,6 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(const RegisterState.loading());
     final response = await _registerRepo.register(
       RegisterRequestBody(
-        
         username: usernameController.text,
         email: emailController.text,
         password: passwordController.text,

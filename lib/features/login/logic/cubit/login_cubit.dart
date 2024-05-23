@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/helpers/constants.dart';
+import '../../../../core/helpers/shared_prefs_helper.dart';
 import '../../data/models/login_request_body.dart';
 import '../../data/repos/login_repo.dart';
 import 'login_state.dart';
@@ -22,7 +24,11 @@ class LoginCubit extends Cubit<LoginState> {
       ),
     );
     response.when(
-      success: (loginResponse) {
+      success: (loginResponse) async {
+        await CacheHelper.saveString(
+            Constants.accessToken, loginResponse.access);
+        await CacheHelper.saveString(
+            Constants.accessToken, loginResponse.refresh);
         emit(LoginState.success(loginResponse));
       },
       failure: (error) {

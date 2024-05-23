@@ -49,8 +49,6 @@ class LoginScreen extends StatelessWidget {
                 ),
                 verticalSpace(48),
                 const EmailAndPassword(),
-              
-              
                 verticalSpace(29),
                 AppTextButton(
                   buttonText: 'الدخول',

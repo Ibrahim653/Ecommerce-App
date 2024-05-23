@@ -22,7 +22,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   const CustomTextFormField({
     super.key,
-   this.title,
+    this.title,
     this.icon,
     this.focusNode,
     this.inputType,
@@ -47,7 +47,6 @@ class CustomTextFormField extends StatelessWidget {
       maxLines: maxLength ?? 1,
       enableInteractiveSelection: enablePaste,
       keyboardType: inputType,
-  
       onChanged: onChanged,
       validator: (value) {
         return validator(value);
@@ -64,17 +63,16 @@ class CustomTextFormField extends StatelessWidget {
           suffixIcon: suffexIcon,
           prefixIcon: icon,
           border: OutlineInputBorder(
-            
               borderRadius: BorderRadius.circular(4),
               borderSide: const BorderSide(
                 color: ColorsManager.primaryCyan,
-            width: 1.3,
+                width: 1.3,
               )),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(4),
             borderSide: const BorderSide(
-              color:ColorsManager.primaryCyan,
-             width: 1.3,
+              color: ColorsManager.primaryCyan,
+              width: 1.3,
             ),
           ),
           focusedBorder: OutlineInputBorder(
@@ -88,7 +86,7 @@ class CustomTextFormField extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
             borderSide: const BorderSide(
               color: ColorsManager.primaryCyan,
-               width: 1.3,
+              width: 1.3,
             ),
           ),
           errorBorder: OutlineInputBorder(

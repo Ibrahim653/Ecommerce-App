@@ -51,11 +51,16 @@ class _RegisterFormState extends State<RegisterForm> {
           CustomTextFormField(
             validator: (value) {
               if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isEmailValid(value)) {
+                  value.isEmpty )
+                 {
                 return 'هذا الحقل مطلوب';
-              }
+             
+            }else if(!AppRegex.isEmailValid(value)){
+              return 'هذا البريد غير صحيح';
+            }
+            return null ;
             },
+
             controller: context.read<RegisterCubit>().emailController,
           ),
           verticalSpace(12),
@@ -155,10 +160,11 @@ class _RegisterFormState extends State<RegisterForm> {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'هذا الحقل مطلوب';
-              } else if (value != context.read<RegisterCubit>().passwordController.text) {
+              } else if (value !=
+                  context.read<RegisterCubit>().passwordController.text) {
                 return 'كلمة السر غير متطابقة';
               }
-              return null; 
+              return null;
             },
           ),
         ],

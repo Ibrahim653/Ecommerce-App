@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/di/dependency_injection.dart';
+import 'core/helpers/shared_prefs_helper.dart';
 import 'core/routing/app_router.dart';
 
 void main() async {
   // To fix texts being hidden bun in flutter_screen_util in release mode
   await ScreenUtil.ensureScreenSize();
   setupGetIt();
+   await CacheHelper.init();
   runApp(EcommerceApp(
     appRouter: AppRouter(),
   ));

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,7 +31,10 @@ class AppRouter {
 
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<GetProductCubit>()..getAllProducts(),
+            child: const HomeScreen(),
+          ),
         );
     }
     return null;

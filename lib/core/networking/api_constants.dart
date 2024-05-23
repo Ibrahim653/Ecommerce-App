@@ -1,7 +1,8 @@
 class ApiConstants {
-  static const String apiBaseUrl= 'https://flutterapi.kortobaa.net/';
+  static const String apiBaseUrl = 'https://flutterapi.kortobaa.net/';
   static const String login = 'users/login/';
   static const String register = 'users/register/';
+  static const String getProducts = 'api/v1/products/';
 }
 
 class ApiErrors {

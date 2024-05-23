@@ -9,7 +9,7 @@ import '../../logic/cubit/register_cubit.dart';
 import '../../logic/cubit/register_state.dart';
 
 class RegisterBlocListner extends StatelessWidget {
-  const   RegisterBlocListner({super.key});
+  const RegisterBlocListner({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +39,9 @@ class RegisterBlocListner extends StatelessWidget {
       },
       child: const SizedBox.shrink(),
     );
-    
   }
-   void showSuccessDialog(BuildContext context) {
+
+  void showSuccessDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {

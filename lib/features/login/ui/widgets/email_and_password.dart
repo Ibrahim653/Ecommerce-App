@@ -40,7 +40,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             controller: context.read<LoginCubit>().emailController,
           ),
           verticalSpace(16.h),
-           Padding(
+          Padding(
             padding: const EdgeInsets.only(bottom: 12),
             child: Text(
               'كلمة السر',
@@ -57,11 +57,11 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                 });
               },
               child: Padding(
-                padding: const EdgeInsets.all(8.0), 
+                padding: const EdgeInsets.all(8.0),
                 child: Icon(
                   isObsecure ? Icons.visibility_off : Icons.visibility,
                   color: Colors.black54,
-                  size: 23.sp, 
+                  size: 23.sp,
                 ),
               ),
             ),

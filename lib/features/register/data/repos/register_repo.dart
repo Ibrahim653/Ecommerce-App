@@ -1,4 +1,3 @@
-
 import '../../../../core/networking/api_error_handler.dart';
 import '../../../../core/networking/api_result.dart';
 import '../../../../core/networking/api_service.dart';
@@ -9,13 +8,14 @@ class RegisterRepo {
   final ApiService _apiService;
 
   RegisterRepo(this._apiService);
-  Future<ApiResult<RegisterResponse>> register(RegisterRequestBody registerRequestBody) async {
-   try {
-     final RegisterResponse response = await _apiService.register(registerRequestBody);
-     return ApiResult.success(response);
-   } catch (error) {
-     return ApiResult.failure(ErrorHandler.handle(error));
-   }
+  Future<ApiResult<RegisterResponse>> register(
+      RegisterRequestBody registerRequestBody) async {
+    try {
+      final RegisterResponse response =
+          await _apiService.register(registerRequestBody);
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
   }
-
 }
