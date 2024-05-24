@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:e_commerce_app/features/category/data/repos/category_repo.dart';
+import 'package:e_commerce_app/features/category/logic/cubit/category_cubit.dart';
 import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_cubit.dart';
 import 'package:get_it/get_it.dart';
 
@@ -25,8 +27,11 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getIt()));
   getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
 
-    //get products
+  //get products
   getIt.registerLazySingleton<GetProductsRepo>(() => GetProductsRepo(getIt()));
-  getIt.registerLazySingleton<GetProductCubit>(
-      () => GetProductCubit(getIt()));
+  getIt.registerLazySingleton<GetProductCubit>(() => GetProductCubit(getIt()));
+
+  //get categories
+  getIt.registerLazySingleton<CategoryRepo>(() => CategoryRepo(getIt()));
+  getIt.registerLazySingleton<CategoryCubit>(() => CategoryCubit(getIt()));
 }

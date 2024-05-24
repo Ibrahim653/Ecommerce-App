@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'products.dart';
+part of 'products_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -18,7 +18,8 @@ Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
       'image_link': instance.imageLink,
     };
 
-Product _$ProductFromJson(Map<String, dynamic> json) => Product(
+ProductsModel _$ProductsModelFromJson(Map<String, dynamic> json) =>
+    ProductsModel(
       count: (json['count'] as num?)?.toInt(),
       next: json['next'],
       previous: json['previous'],
@@ -27,7 +28,8 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
           .toList(),
     );
 
-Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
+Map<String, dynamic> _$ProductsModelToJson(ProductsModel instance) =>
+    <String, dynamic>{
       'count': instance.count,
       'next': instance.next,
       'previous': instance.previous,

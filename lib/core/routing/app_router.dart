@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/category/ui/category_screen.dart';
 import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +8,7 @@ import '../../../features/login/logic/cubit/login_cubit.dart';
 import '../../../features/login/ui/login_screen.dart';
 import '../../../features/register/logic/cubit/register_cubit.dart';
 import '../../../features/register/ui/register_screen.dart';
+import '../../features/category/logic/cubit/category_cubit.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 
@@ -34,6 +36,13 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getIt<GetProductCubit>()..getAllProducts(),
             child: const HomeScreen(),
+          ),
+        );
+         case Routes.categoryScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<CategoryCubit>()..getCategories(),
+            child: const CategoriesScreen(),
           ),
         );
     }

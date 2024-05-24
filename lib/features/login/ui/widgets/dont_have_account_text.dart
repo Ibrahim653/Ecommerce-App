@@ -14,7 +14,7 @@ class DontHaveAccountText extends StatelessWidget {
         Text('ليس لديك حساب ؟', style: Styles.font14GreyMedium),
         GestureDetector(
           onTap: () {
-            context.pushReplacementNamed(Routes.registerScreen);
+              context.pushReplacementNamed(Routes.registerScreen);
           },
           child: Text(' التسجيل', style: Styles.font18PinkBold),
         ),

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../logic/product_cubit/get_product_cubit.dart';
@@ -11,6 +12,14 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Screen'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.navigate_before),
+            onPressed: () {
+              Navigator.pushReplacementNamed(context,Routes.categoryScreen);
+            },
+          ),
+        ],
       ),
       body: BlocBuilder<GetProductCubit, GetProductState>(
         builder: (context, state) {

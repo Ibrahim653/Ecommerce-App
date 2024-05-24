@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'products.g.dart';
+part 'products_model.g.dart';
 
 @JsonSerializable()
 class Category {
@@ -16,15 +16,15 @@ class Category {
 }
 
 @JsonSerializable()
-class Product {
+class ProductsModel {
   int? count;
   dynamic next;
   dynamic previous;
   List<Result>? results;
 
-  Product({this.count, this.next, this.previous, this.results});
+  ProductsModel({this.count, this.next, this.previous, this.results});
 
-  factory Product.fromJson(Map<String, dynamic> json) => _$ProductFromJson(json);
+  factory ProductsModel.fromJson(Map<String, dynamic> json) => _$ProductsModelFromJson(json);
 
 }
 
