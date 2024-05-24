@@ -33,12 +33,19 @@ class AppRouter {
 
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<GetProductCubit>()..getAllProducts(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<GetProductCubit>()..getAllProducts(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<CategoryCubit>()..getCategories(),
+              ),
+            ],
             child: const HomeScreen(),
           ),
         );
-         case Routes.categoryScreen:
+      case Routes.categoryScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<CategoryCubit>()..getCategories(),

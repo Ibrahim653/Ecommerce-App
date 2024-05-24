@@ -20,6 +20,7 @@ class CategoryList extends StatelessWidget {
         final category = categories.results[index];
         return CategoryItem(
           name: category.name,
+          
           imageUrl: category.imageLink,
         );
       },

@@ -1,6 +1,7 @@
-import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../category/logic/cubit/category_cubit.dart';
+import '../../category/ui/category_screen.dart';
 import '../logic/product_cubit/get_product_cubit.dart';
 import '../logic/product_cubit/get_product_state.dart';
 
@@ -12,11 +13,20 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Screen'),
-        actions: [
+         actions: [
           IconButton(
             icon: const Icon(Icons.navigate_before),
             onPressed: () {
-              Navigator.pushReplacementNamed(context,Routes.categoryScreen);
+              final categoryCubit = context.read<CategoryCubit>();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BlocProvider.value(
+                    value: categoryCubit,
+                    child: const CategoriesScreen(),
+                  ),
+                ),
+              );
             },
           ),
         ],

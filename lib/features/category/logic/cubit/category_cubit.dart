@@ -21,7 +21,7 @@ class CategoryCubit extends Cubit<CategoryState> {
         },
       );
     } catch (e) {
-      emit(CategoryState.error(error: e.toString()));
+    emit(CategoryState.error(error: e.toString()));
     }
   }
 }

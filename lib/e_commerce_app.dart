@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce_app/core/helpers/constants.dart';
 import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:e_commerce_app/core/theming/colors.dart';
@@ -18,6 +19,9 @@ class EcommerceApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Ecommerce App',
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+
         theme: ThemeData(
             colorScheme: ColorScheme.fromSwatch(
                 backgroundColor: ColorsManager.appBackgroundColor),
