@@ -2,6 +2,8 @@ import 'package:e_commerce_app/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/theming/styles.dart';
+
 class QuantitySelector extends StatefulWidget {
   const QuantitySelector({super.key});
 
@@ -31,22 +33,65 @@ class QuantitySelectorState extends State<QuantitySelector> {
     return Row(
       children: [
         Container(
-          width: 45.w,
           height: 44.h,
-          decoration: const BoxDecoration(color: ColorsManager.primaryCyan),
+          width: 45.w,
+          decoration: BoxDecoration(
+              color: ColorsManager.primaryCyan,
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(4.r),
+                topRight: Radius.circular(4.r),
+              )),
           child: IconButton(
-            icon: const Icon(Icons.remove),
-            onPressed: _decrementQuantity,
+              icon: const Icon(Icons.add),
+              color: ColorsManager.white,
+              onPressed: () {
+                _incrementQuantity();
+              }),
+        ),
+        SizedBox(
+          width: 60.w,
+          child: Text(
+            '$quantity',
+            textAlign: TextAlign.center,
+            style: Styles.font16GreyMedium,
           ),
         ),
-        Text(
-          quantity.toString(),
-          style: const TextStyle(fontSize: 18),
+        Container(
+          height: 44.h,
+          width: 45.w,
+          decoration: BoxDecoration(
+              color: ColorsManager.primaryCyan,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(4.r),
+                bottomLeft: Radius.circular(4.r),
+              )),
+          child: IconButton(
+              icon: const Icon(Icons.remove),
+              color: ColorsManager.white,
+              onPressed: () {
+                _decrementQuantity();
+              }),
         ),
-        IconButton(
-          icon: const Icon(Icons.add),
-          onPressed: _incrementQuantity,
+        const Spacer(),
+        Container(
+          height: 44.h,
+          width: 159.w,
+          decoration: BoxDecoration(
+              color: ColorsManager.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(4.r),
+                bottomLeft: Radius.circular(4.r),
+                topRight: Radius.circular(4.r),
+                bottomRight: Radius.circular(4.r),
+              )),
+          child:  Center(
+            child: Text(
+              '398.00 ج.م',
+              style:Styles.font16GreyMedium ,
+            ),
+          ),
         ),
+        const Spacer(),
       ],
     );
   }

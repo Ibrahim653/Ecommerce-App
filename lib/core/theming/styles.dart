@@ -35,6 +35,16 @@ class Styles {
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.secondaryPink,
   );
+   static TextStyle font14PinkBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.secondaryPink,
+  );
+    static TextStyle font18CyanMedium = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.primaryCyan,
+  );
  static TextStyle font24WhiteMedium = TextStyle(
     fontSize: 24.sp,
     fontWeight: FontWeightHelper.medium,
