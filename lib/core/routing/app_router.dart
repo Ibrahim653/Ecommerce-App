@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/features/category/ui/category_screen.dart';
 import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_cubit.dart';
+import 'package:e_commerce_app/features/home/producr_ui/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -50,6 +51,14 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getIt<CategoryCubit>()..getCategories(),
             child: const CategoriesScreen(),
+          ),
+        );
+
+      case Routes.productScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+                create: (context) => getIt<GetProductCubit>()..getAllProducts(),
+            child: const ProductDetailsScreen(),
           ),
         );
     }
