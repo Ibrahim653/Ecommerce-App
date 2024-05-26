@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/core/helpers/spacing.dart';
+import 'package:e_commerce_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,14 +18,12 @@ class CatgroiyItem extends StatelessWidget {
           backgroundImage: const AssetImage(
             Constants.loginLogo,
           ),
-          radius: 45.r,
+          radius: 30.r,
         ),
+        verticalSpace(7),
         Text(
-          'name',
-          style: TextStyle(
-            fontSize: 20.sp,
-            fontWeight: FontWeight.w600,
-          ),
+          'أزياء',
+          style: Styles.font12GreyMedium
         ),
       ],
     );

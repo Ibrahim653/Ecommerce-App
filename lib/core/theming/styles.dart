@@ -10,15 +10,30 @@ class Styles {
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.secondaryPink,
   );
+    static TextStyle font12GreyMedium = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.textGrey,
+  );
   static TextStyle font14GreyMedium = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.textGrey,
+  );
+  static TextStyle font14GreyBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
     color: ColorsManager.textGrey,
   );
   static TextStyle font16GreyMedium = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.medium,
     color: ColorsManager.textGrey,
+  );
+    static TextStyle font12CyanMedium = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.primaryCyan,
   );
   static TextStyle font14CyanBold = TextStyle(
     fontSize: 14.sp,

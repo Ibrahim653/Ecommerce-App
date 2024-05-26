@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,27 +13,24 @@ class TitleAboveList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        TextButton(
-          onPressed: () {},
-          child: Text(
-            titletwo ?? "عرض الكل",
-            style: TextStyle(
-              fontSize: 16.sp,
-              //fontWeight: FontWeight.w600,
+    return Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 5.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: Styles.font14GreyBold,
+          ),
+          TextButton(
+            onPressed: () {},
+            child: Text(
+              titletwo ?? "عرض الكل",
+              style: Styles.font12GreyMedium,
             ),
           ),
-        ),
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 18.sp,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

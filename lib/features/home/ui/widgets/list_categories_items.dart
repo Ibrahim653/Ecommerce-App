@@ -10,12 +10,12 @@ class ListCatgroiesItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150.h,
+      height: 100.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         separatorBuilder: (context, index) => SizedBox(
-          width: 15.w,
+          width: 8.w,
         ),
         itemBuilder: (context, index) => const CatgroiyItem(),
       ),

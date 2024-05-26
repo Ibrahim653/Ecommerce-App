@@ -42,7 +42,7 @@ class QuantitySelectorState extends State<QuantitySelector> {
                 topRight: Radius.circular(4.r),
               )),
           child: IconButton(
-              icon: const Icon(Icons.add),
+              icon: Icon(Icons.add, size: 21.sp),
               color: ColorsManager.white,
               onPressed: () {
                 _incrementQuantity();
@@ -66,7 +66,10 @@ class QuantitySelectorState extends State<QuantitySelector> {
                 bottomLeft: Radius.circular(4.r),
               )),
           child: IconButton(
-              icon: const Icon(Icons.remove),
+              icon: Icon(
+                Icons.remove,
+                size: 21.sp,
+              ),
               color: ColorsManager.white,
               onPressed: () {
                 _decrementQuantity();
@@ -84,10 +87,10 @@ class QuantitySelectorState extends State<QuantitySelector> {
                 topRight: Radius.circular(4.r),
                 bottomRight: Radius.circular(4.r),
               )),
-          child:  Center(
+          child: Center(
             child: Text(
               '398.00 ج.م',
-              style:Styles.font16GreyMedium ,
+              style: Styles.font16GreyMedium,
             ),
           ),
         ),

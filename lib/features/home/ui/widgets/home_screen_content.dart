@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/constants.dart';
+import '../../../../core/widgets/custome_search_text_field.dart';
 
 class HomePageContent extends StatefulWidget {
   const HomePageContent({super.key});
@@ -31,8 +32,7 @@ class _HomePageContentState extends State<HomePageContent> {
         child: SingleChildScrollView(
           child: Stack(
             children: [
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 0),
+              Container(
                 height: 230.h,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -56,6 +56,7 @@ class _HomePageContentState extends State<HomePageContent> {
               Column(
                 children: [
                   const HomeAppBar(),
+                  const CustomSearchTextField(),
                   CarouselSlider.builder(
                     itemBuilder: (context, index, realIndex) {
                       return GestureDetector(
@@ -100,35 +101,39 @@ class _HomePageContentState extends State<HomePageContent> {
                     activeIndex: activeIndex,
                     count: 2,
                   ),
-                  verticalSpace(20),
-                  const ListCatgroiesItems(),
-                  verticalSpace(20),
-                  const TitleAboveList(
-                    title: "وصل حديثا",
-                  ),
-                  SizedBox(
-                    height: 210.h,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      separatorBuilder: (context, index) => SizedBox(
-                        width: 5.w,
-                      ),
-                      itemBuilder: (context, index) => const ProdectItems(),
-                    ),
-                  ),
-                  const TitleAboveList(
-                    title: "وصل حديثا",
-                  ),
-                  SizedBox(
-                    height: 210.h,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      separatorBuilder: (context, index) => SizedBox(
-                        width: 5.w,
-                      ),
-                      itemBuilder: (context, index) => const ProdectItems(),
+                  verticalSpace(30),
+                  Padding(
+                    padding:  EdgeInsets.only(right:16.w ),
+                    child: Column(
+                      children: [
+                        const ListCatgroiesItems(),
+                        const TitleAboveList(
+                          title: "وصل حديثا",
+                        ),
+                        SizedBox(
+                          height: 210.h,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 10,
+                           
+                            itemBuilder: (context, index) => const ProdectItems(),
+                          ),
+                        ),
+                        const TitleAboveList(
+                          title: "الأكثر شعبية",
+                        ),
+                        SizedBox(
+                          height: 210.h,
+                          child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 10,
+                            separatorBuilder: (context, index) => SizedBox(
+                              width: 5.w,
+                            ),
+                            itemBuilder: (context, index) => const ProdectItems(),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
