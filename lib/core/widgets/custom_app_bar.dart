@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key, this.onPressedIcon, required this.title});
 final void Function()? onPressedIcon;
 final String title;
+ @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight); // Adjust height as neede
   @override
   Widget build(BuildContext context) {
     return AppBar(

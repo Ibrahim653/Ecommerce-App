@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/cart/ui/cart_screen.dart';
 import 'package:e_commerce_app/features/category/ui/category_screen.dart';
 import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_cubit.dart';
 import 'package:e_commerce_app/features/product_details/logic/cubit/product_details_cubit.dart';
@@ -80,6 +81,12 @@ class AppRouter {
          case Routes.favoriteScreen:
         return MaterialPageRoute(
           builder: (_) => const FavorietScreen(),
+        );
+
+        
+         case Routes.cartScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CartScreen(),
         );
 
       default:
