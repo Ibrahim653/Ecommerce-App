@@ -18,15 +18,17 @@ class CategoriesScreen extends StatelessWidget {
         titleTextStyle: Styles.font16GreyMedium,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        leading: const Icon(
+        leading:  Icon(
           Icons.search,
+            size: 22.w,
           color: ColorsManager.lightGrey,
         ),
         actions:  [
           Padding(
             padding: EdgeInsets.only(right: 20.w),
-            child: const Icon(
+            child:  Icon(
               Icons.menu,
+              size: 22.w,
               color: ColorsManager.lightGrey,
             ),
           ),

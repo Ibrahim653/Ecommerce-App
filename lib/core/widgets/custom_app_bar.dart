@@ -3,18 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeAppBar extends StatelessWidget {
-  const HomeAppBar({super.key});
-
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key, this.onPressedIcon, required this.title});
+final void Function()? onPressedIcon;
+final String title;
   @override
   Widget build(BuildContext context) {
     return AppBar(
       systemOverlayStyle: SystemUiOverlayStyle.dark,
-      backgroundColor: Colors.transparent,
       centerTitle: true,
-      iconTheme: const IconThemeData(color: Colors.black),
       title: Text(
-        'الرئيسية',
+        title,
         style: Styles.font16GreyMedium,
       ),
       leading: IconButton(
@@ -25,6 +24,20 @@ class HomeAppBar extends StatelessWidget {
         ),
         onPressed: () {},
       ),
+      actions: [
+        Padding(
+            padding: EdgeInsets.only(left: 16.w),
+          child: IconButton(
+            icon: Icon(
+              Icons.search,
+              size: 22.sp,
+              color: Colors.black54,
+            ),
+            onPressed: onPressedIcon,
+          ),
+        ),
+    
+      ],
     );
   }
 }

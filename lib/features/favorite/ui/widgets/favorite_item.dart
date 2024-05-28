@@ -1,42 +1,30 @@
-import 'package:e_commerce_app/core/helpers/extensions.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce_app/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/styles.dart';
 
-class ProductItem extends StatelessWidget {
-  const ProductItem({
-    super.key,
-    required this.name,
-    required this.price,
-    required this.productImage,
-  });
-
-  final String name;
-  final String price;
-  final String productImage;
+class FavoriteItem extends StatelessWidget {
+  const FavoriteItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){
-        context.pushNamed(Routes.productScreen);
-      },
+    return Padding(
+      padding:  EdgeInsets.only(left: 18.w,right: 18.w,bottom:16.h),
       child: Card(
         child: SizedBox(
-          width: 133.w,
-          height: 205.h,
+          width: double.infinity,
+          height: 424.h,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
                 children: [
                   CachedNetworkImage(
-                    imageUrl: productImage,
-                    height: 110.h,
+                    imageUrl: 'https://e7.pngegg.com/pngimages/420/138/png-clipart-pair-of-yellow-and-black-nike-shoes-illustration-wu-tang-clan-the-swarm-nike-dunk-hip-hop-music-nike-shoes-comics-outdoor-shoe-thumbnail.png',
+                    height: 253.h,
                     width: double.infinity,
                     fit: BoxFit.cover,
                     placeholder: (context, url) => Shimmer.fromColors(
@@ -44,7 +32,7 @@ class ProductItem extends StatelessWidget {
                       highlightColor: Colors.grey[100]!,
                       child: Container(
                         width: double.infinity,
-                        height: 110.h,
+                        height: 253.h,
                         color: Colors.white,
                       ),
                     ),
@@ -57,45 +45,39 @@ class ProductItem extends StatelessWidget {
                       onPressed: () {},
                       icon:  Icon(
                         Icons.favorite_border,
-                        size: 23.sp,
                         color: Colors.grey,
+                        size: 27.sp,
                       ),
                     ),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 5.h),
+                padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 8.h),
                 child: Text(
-                  name,
-                  style: Styles.font12GreyMedium,
+                  'padding: EdgeInsets.only(left: 20.w) , padding: EdgeInsets.only(left: 20.w), padding: EdgeInsets.only(left: 20.w)',
+                  style: Styles.font16GreyMedium,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
               ),
               const Spacer(),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
+                padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 4.h),
+               child:  Row(
                       children: [
-                        Text('$price ', style: Styles.font14CyanBold),
-                        Text('ج.م', style: Styles.font12CyanMedium),
+                        Text('122.00 ', style: Styles.font18CyanMedium),
+                        Text('ج.م', style: Styles.font14CyanBold),
                       ],
                     ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.add_shopping_cart,
-                        size: 21.sp,
-                        color: Colors.black54,
-                      ),
-                    ),
-                  ],
-                ),
               ),
+              AppTextButton(buttonText: 'نقل إلى سلة التسوق', textStyle: Styles.font16WhiteBold, onPressed: (){},
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(4.r),
+                bottomRight: Radius.circular(4.r),
+              ),
+              ),
+              
             ],
           ),
         ),

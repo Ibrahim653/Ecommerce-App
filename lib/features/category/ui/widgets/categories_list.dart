@@ -18,10 +18,14 @@ class CategoryList extends StatelessWidget {
       itemCount: categories.results.length,
       itemBuilder: (context, index) {
         final category = categories.results[index];
-        return CategoryItem(
-          name: category.name,
-          
-          imageUrl: category.imageLink,
+        return Column(
+          children: [
+            CategoryItem(
+              name: category.name,
+              
+              imageUrl: category.imageLink,
+            ),
+          ],
         );
       },
     );

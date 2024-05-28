@@ -11,6 +11,7 @@ import '../../../features/login/ui/login_screen.dart';
 import '../../../features/register/logic/cubit/register_cubit.dart';
 import '../../../features/register/ui/register_screen.dart';
 import '../../features/category/logic/cubit/category_cubit.dart';
+import '../../features/favorite/ui/favorite_screen.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 
@@ -75,6 +76,11 @@ class AppRouter {
             ),
           );
         }
+
+         case Routes.favoriteScreen:
+        return MaterialPageRoute(
+          builder: (_) => const FavorietScreen(),
+        );
 
       default:
         return null;

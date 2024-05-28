@@ -3,7 +3,6 @@ import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_cub
 import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_state.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/carousel_slider_images.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/gradient_background.dart';
-import 'package:e_commerce_app/features/home/ui/widgets/home_app_bar.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/list_categories_items.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/products_list.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/smooth_indicator.dart';
@@ -12,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custome_search_text_field.dart';
 
 class HomePageContent extends StatefulWidget {
@@ -52,7 +52,7 @@ class _HomePageContentState extends State<HomePageContent> {
                         GradientBackground(isColor: isColor),
                         Column(
                           children: [
-                            const HomeAppBar(),
+                            const CustomAppBar(title: 'الرئيسية'),
                             const CustomSearchTextField(),
                             CarouselSliderImages(
                               activeIndex: activeIndex,
