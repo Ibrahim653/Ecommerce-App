@@ -4,14 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ProductImage extends StatelessWidget {
-  final String? imageUrl;
+  final String imageLink;
 
-  const ProductImage({required this.imageUrl, super.key});
+  const ProductImage({required this.imageLink, super.key});
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: imageUrl ?? '/images',
+      imageUrl: imageLink ,
       height: 340.h,
       width: double.infinity,
       fit: BoxFit.cover,

@@ -1,7 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:e_commerce_app/core/theming/styles.dart';
 import 'package:e_commerce_app/features/category/ui/category_screen.dart';
-import 'package:e_commerce_app/features/home/producr_ui/product_details_screen.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/home_screen_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     const HomePageContent(),
     const CategoriesScreen(),
-    const ProductDetailsScreen(),
+    const CategoriesScreen(),
     const CategoriesScreen(),
   ];
 
@@ -55,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+          height: 55.h,
           itemCount: iconList.length,
           tabBuilder: (int index, bool isActive) {
             final color = isActive ? ColorsManager.primaryCyan : Colors.black54;
@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Icon(
                   iconList[index],
-                  size: 27.sp,
+                  size: 20.sp,
                   color: color,
                 ),
                 SizedBox(height: 4.h),

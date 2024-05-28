@@ -5,8 +5,8 @@ import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 
 class ProductPriceAndRating extends StatelessWidget {
-  final String? price;
-  final String? rate;
+  final String price;
+  final String rate;
 
   const ProductPriceAndRating({required this.price, required this.rate, super.key});
 
@@ -22,7 +22,7 @@ class ProductPriceAndRating extends StatelessWidget {
         ),
         const Spacer(),
         Text(
-          '$rate',
+          rate,
           style: Styles.font14GreyMedium,
         ),
         horizontalSpace(3.w),

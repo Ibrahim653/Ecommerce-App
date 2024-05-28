@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/features/home/producr_ui/widgets/custom_button.dart';
+import 'package:e_commerce_app/features/product_details/ui/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

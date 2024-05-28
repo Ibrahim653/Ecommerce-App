@@ -9,6 +9,8 @@ import '../../../features/login/logic/cubit/login_cubit.dart';
 import '../../../features/register/data/repos/register_repo.dart';
 import '../../../features/register/logic/cubit/register_cubit.dart';
 import '../../features/home/data/repos/get_products_repo.dart';
+import '../../features/product_details/data/repos/product_details_repo.dart';
+import '../../features/product_details/logic/cubit/product_details_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 
@@ -34,4 +36,7 @@ Future<void> setupGetIt() async {
   //get categories
   getIt.registerLazySingleton<CategoryRepo>(() => CategoryRepo(getIt()));
   getIt.registerLazySingleton<CategoryCubit>(() => CategoryCubit(getIt()));
+    //get product By Id
+  getIt.registerLazySingleton<GetProductByIdRepo>(() => GetProductByIdRepo(getIt()));
+  getIt.registerLazySingleton<GetProductByIdCubit>(() => GetProductByIdCubit(getIt()));
 }

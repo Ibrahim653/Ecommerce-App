@@ -4,6 +4,7 @@ class ApiConstants {
   static const String register = 'users/register/';
   static const String getProducts = 'api/v1/products/';
   static const String getCategories = 'api/v1/categories';
+  static const String getProductById = 'api/v1/products/{id}/';
 }
 
 class ApiErrors {

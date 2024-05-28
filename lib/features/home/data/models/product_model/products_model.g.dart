@@ -23,8 +23,8 @@ ProductsModel _$ProductsModelFromJson(Map<String, dynamic> json) =>
       count: (json['count'] as num?)?.toInt(),
       next: json['next'],
       previous: json['previous'],
-      results: (json['results'] as List<dynamic>?)
-          ?.map((e) => Result.fromJson(e as Map<String, dynamic>))
+      results: (json['results'] as List<dynamic>)
+          .map((e) => Result.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

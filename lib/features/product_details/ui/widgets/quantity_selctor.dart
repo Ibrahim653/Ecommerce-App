@@ -4,14 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theming/styles.dart';
 
-class QuantitySelector extends StatefulWidget {
-  const QuantitySelector({super.key});
+class QuantitySelctor extends StatefulWidget {
+  const QuantitySelctor({super.key});
 
   @override
-  QuantitySelectorState createState() => QuantitySelectorState();
+  QuantitySelctorState createState() => QuantitySelctorState();
 }
 
-class QuantitySelectorState extends State<QuantitySelector> {
+class QuantitySelctorState extends State<QuantitySelctor> {
   int quantity = 1;
 
   void _incrementQuantity() {

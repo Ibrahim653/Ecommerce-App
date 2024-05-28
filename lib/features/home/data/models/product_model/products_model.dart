@@ -20,9 +20,9 @@ class ProductsModel {
   int? count;
   dynamic next;
   dynamic previous;
-  List<Result>? results;
+  List<Result> results;
 
-  ProductsModel({this.count, this.next, this.previous, this.results});
+  ProductsModel({this.count, this.next, this.previous, required this.results});
 
   factory ProductsModel.fromJson(Map<String, dynamic> json) => _$ProductsModelFromJson(json);
 
