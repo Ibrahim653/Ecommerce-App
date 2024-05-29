@@ -6,10 +6,8 @@ part 'product_details_model.g.dart';
 class ProductDetailsModel {
   final int id;
   final String name;
-
   @JsonKey(name: 'image_link')
   final String imageLink;
-
   final String price;
   final String description;
   final String rate;
@@ -27,13 +25,14 @@ class ProductDetailsModel {
 
   factory ProductDetailsModel.fromJson(Map<String, dynamic> json) =>
       _$ProductDetailsModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProductDetailsModelToJson(this);
 }
 
 @JsonSerializable()
 class Category {
   final int id;
   final String name;
-
   @JsonKey(name: 'image_link')
   final String imageLink;
 
@@ -45,4 +44,6 @@ class Category {
 
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CategoryToJson(this);
 }

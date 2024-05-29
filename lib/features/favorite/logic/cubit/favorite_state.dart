@@ -1,6 +1,5 @@
 part of 'favorite_cubit.dart';
 
-@immutable
 class FavoriteState {
   final List<Map<String, dynamic>> favorites;
 

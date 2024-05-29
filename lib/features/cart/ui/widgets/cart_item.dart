@@ -1,21 +1,30 @@
-import 'package:e_commerce_app/features/cart/ui/widgets/quantity_slector.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:e_commerce_app/features/cart/ui/widgets/quantity_slector.dart';
 
 import '../../../../core/theming/styles.dart';
 
 class CartItem extends StatelessWidget {
-  final String name;
-  final String imageUrl;
-
   const CartItem({
+    super.key,
     required this.name,
     required this.imageUrl,
-    super.key,
+    required this.price,
+    required this.id,
   });
+  final String name;
+  final String imageUrl;
+  final String price;
+  final int id;
+  // int quantity = 1;
 
   @override
   Widget build(BuildContext context) {
+    // double itemPrice = double.parse(price);
+    // double totalPrice = itemPrice * quantity;
+
     return Card(
       elevation: 0,
       child: Column(
@@ -48,7 +57,7 @@ class CartItem extends StatelessWidget {
                       padding: EdgeInsets.only(right: 8.w),
                       child: Row(
                         children: [
-                          Text('122.00 ', style: Styles.font14CyanBold),
+                          Text('211 ', style: Styles.font14CyanBold),
                           Text('ج.م', style: Styles.font12CyanMedium),
                         ],
                       ),
@@ -58,7 +67,7 @@ class CartItem extends StatelessWidget {
               ),
             ],
           ),
-          const QuantitySelector()
+          const QuantitySelector(),
         ],
       ),
     );

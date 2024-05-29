@@ -10,6 +10,7 @@ import '../../../features/login/data/repos/login_repo.dart';
 import '../../../features/login/logic/cubit/login_cubit.dart';
 import '../../../features/register/data/repos/register_repo.dart';
 import '../../../features/register/logic/cubit/register_cubit.dart';
+import '../../features/cart/ui/logic/cubit/cart_cubit.dart';
 import '../../features/home/data/repos/get_products_repo.dart';
 import '../../features/product_details/data/repos/product_details_repo.dart';
 import '../../features/product_details/logic/cubit/product_details_cubit.dart';
@@ -38,12 +39,17 @@ Future<void> setupGetIt() async {
   //get categories
   getIt.registerLazySingleton<CategoryRepo>(() => CategoryRepo(getIt()));
   getIt.registerLazySingleton<CategoryCubit>(() => CategoryCubit(getIt()));
-    //get product By Id
-  getIt.registerLazySingleton<GetProductByIdRepo>(() => GetProductByIdRepo(getIt()));
-  getIt.registerLazySingleton<GetProductByIdCubit>(() => GetProductByIdCubit(getIt()));
+  //get product By Id
+  getIt.registerLazySingleton<GetProductByIdRepo>(
+      () => GetProductByIdRepo(getIt()));
+  getIt.registerLazySingleton<GetProductByIdCubit>(
+      () => GetProductByIdCubit(getIt()));
 
-      //add favorite
-        getIt.registerLazySingleton<FavoriteService>(() => FavoriteService());
-
+  //add to favorite
+  getIt.registerLazySingleton<FavoriteService>(() => FavoriteService());
   getIt.registerLazySingleton<FavoriteCubit>(() => FavoriteCubit(getIt()));
+
+  //add to cart
+  getIt.registerLazySingleton<CartService>(() => CartService());
+  getIt.registerLazySingleton<CartCubit>(() => CartCubit(getIt()));
 }

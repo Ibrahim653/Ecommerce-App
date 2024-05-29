@@ -1,21 +1,22 @@
-import 'package:e_commerce_app/features/cart/ui/cart_screen.dart';
-import 'package:e_commerce_app/features/category/ui/category_screen.dart';
-import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_cubit.dart';
-import 'package:e_commerce_app/features/product_details/logic/cubit/product_details_cubit.dart';
-import 'package:e_commerce_app/features/product_details/ui/product_details_screen.dart';
-import 'package:e_commerce_app/features/home/ui/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:e_commerce_app/features/cart/ui/cart_screen.dart';
+import 'package:e_commerce_app/features/category/ui/category_screen.dart';
+import 'package:e_commerce_app/features/home/ui/home_screen.dart';
+import 'package:e_commerce_app/features/product_details/ui/product_details_screen.dart';
+import 'package:e_commerce_app/features/login/ui/login_screen.dart';
+import 'package:e_commerce_app/features/register/ui/register_screen.dart';
+import 'package:e_commerce_app/features/favorite/ui/favorite_screen.dart';
+import 'package:e_commerce_app/features/cart/ui/logic/cubit/cart_cubit.dart';
+import 'package:e_commerce_app/core/di/dependency_injection.dart';
+import 'package:e_commerce_app/core/routing/routes.dart';
+import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_cubit.dart';
+import 'package:e_commerce_app/features/category/logic/cubit/category_cubit.dart';
+import 'package:e_commerce_app/features/favorite/logic/cubit/favorite_cubit.dart';
 
-import '../../../features/login/logic/cubit/login_cubit.dart';
-import '../../../features/login/ui/login_screen.dart';
-import '../../../features/register/logic/cubit/register_cubit.dart';
-import '../../../features/register/ui/register_screen.dart';
-import '../../features/category/logic/cubit/category_cubit.dart';
-import '../../features/favorite/logic/cubit/favorite_cubit.dart';
-import '../../features/favorite/ui/favorite_screen.dart';
-import '../di/dependency_injection.dart';
-import 'routes.dart';
+import '../../features/login/logic/cubit/login_cubit.dart';
+import '../../features/product_details/logic/cubit/product_details_cubit.dart';
+import '../../features/register/logic/cubit/register_cubit.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -49,6 +50,9 @@ class AppRouter {
               BlocProvider(
                 create: (context) => getIt<FavoriteCubit>()..loadFavorites(),
               ),
+              BlocProvider.value(
+                value: getIt<CartCubit>()..loadCartItems(),
+              ),
             ],
             child: const HomeScreen(),
           ),
@@ -64,13 +68,14 @@ class AppRouter {
 
       case Routes.productScreen:
         final productId = settings.arguments as int?;
-        print('idddddddddddddddddddddddddddddddddddddddddd${productId}');
         if (productId is int) {
           return MaterialPageRoute(
             builder: (_) => BlocProvider(
               create: (context) =>
                   getIt<GetProductByIdCubit>()..fetchProductById(productId),
-              child: const ProductDetailsScreen(),
+              child: ProductDetailsScreen(
+                productId: productId,
+              ),
             ),
           );
         } else {
@@ -91,7 +96,10 @@ class AppRouter {
 
       case Routes.cartScreen:
         return MaterialPageRoute(
-          builder: (_) => const CartScreen(),
+          builder: (_) => BlocProvider.value(
+            value: getIt<CartCubit>(),
+            child: const CartScreen(),
+          ),
         );
 
       default:

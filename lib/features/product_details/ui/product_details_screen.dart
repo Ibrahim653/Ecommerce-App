@@ -1,22 +1,22 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:e_commerce_app/features/product_details/ui/widgets/add_to_cart_button.dart';
 import 'package:e_commerce_app/features/product_details/ui/widgets/favorite_share_buttons.dart';
 import 'package:e_commerce_app/features/product_details/ui/widgets/product_description.dart';
 import 'package:e_commerce_app/features/product_details/ui/widgets/product_expansion_tile.dart';
 import 'package:e_commerce_app/features/product_details/ui/widgets/product_image.dart';
 import 'package:e_commerce_app/features/product_details/ui/widgets/product_price_rating.dart';
-import 'package:e_commerce_app/features/product_details/ui/widgets/quantity_selctor.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../core/helpers/spacing.dart';
 import '../../../core/theming/colors.dart';
+import '../../cart/ui/widgets/quantity_slector.dart';
 import '../logic/cubit/product_details_cubit.dart';
 import '../logic/cubit/product_details_state.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({super.key, });
+  const ProductDetailsScreen({super.key, required this.productId});
 
+  final int productId;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class ProductDetailsScreen extends StatelessWidget {
                                 color: ColorsManager.lightGrey.withOpacity(0.7),
                               ),
                               verticalSpace(5.h),
-                              const QuantitySelctor(),
+                              const QuantitySelector(),
                               verticalSpace(25.h),
                               const Center(child: AddToCartButton()),
                               verticalSpace(25.h),

@@ -60,3 +60,39 @@ class FavoriteService {
   }
 }
 
+class CartService {
+  static const String _cartKey = 'cart';
+
+   Future<void> addProductToCart(Map<String, dynamic> product) async {
+    final preferences = await SharedPreferences.getInstance();
+
+    final cartItems = await getCartItems();
+    cartItems.add(product);
+    await preferences.setString(_cartKey, jsonEncode(cartItems));
+  }
+
+   Future<void> removeProductFromCart(int productId) async {
+    final preferences = await SharedPreferences.getInstance();
+
+    final cartItems = await getCartItems();
+    cartItems.removeWhere((product) => product['id'] == productId);
+    await preferences.setString(_cartKey, jsonEncode(cartItems));
+  }
+
+   Future<List<Map<String, dynamic>>> getCartItems() async {
+    final preferences = await SharedPreferences.getInstance();
+
+    final cartString = preferences.getString(_cartKey);
+    if (cartString == null) {
+      return [];
+    } else {
+      final List<dynamic> jsonCart = jsonDecode(cartString);
+      return jsonCart.cast<Map<String, dynamic>>();
+    }
+  }
+
+   Future<bool> isProductInCart(int productId) async {
+    final cartItems = await getCartItems();
+    return cartItems.any((product) => product['id'] == productId);
+  }
+}
