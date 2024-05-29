@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:e_commerce_app/core/helpers/shared_prefs_helper.dart';
 import 'package:e_commerce_app/features/category/data/repos/category_repo.dart';
 import 'package:e_commerce_app/features/category/logic/cubit/category_cubit.dart';
+import 'package:e_commerce_app/features/favorite/logic/cubit/favorite_cubit.dart';
 import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_cubit.dart';
 import 'package:get_it/get_it.dart';
 
@@ -39,4 +41,9 @@ Future<void> setupGetIt() async {
     //get product By Id
   getIt.registerLazySingleton<GetProductByIdRepo>(() => GetProductByIdRepo(getIt()));
   getIt.registerLazySingleton<GetProductByIdCubit>(() => GetProductByIdCubit(getIt()));
+
+      //add favorite
+        getIt.registerLazySingleton<FavoriteService>(() => FavoriteService());
+
+  getIt.registerLazySingleton<FavoriteCubit>(() => FavoriteCubit(getIt()));
 }

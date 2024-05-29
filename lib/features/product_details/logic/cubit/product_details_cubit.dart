@@ -9,7 +9,7 @@ class GetProductByIdCubit extends Cubit<ProductDetailsState> {
   GetProductByIdCubit(this._getProductByIdRepo)
       : super(const ProductDetailsState.initial());
 
-  Future<void> fetchProductById( int id) async {
+  Future<void> fetchProductById(int id) async {
     emit(const ProductDetailsState.loading());
 
     try {

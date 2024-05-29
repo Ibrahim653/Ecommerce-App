@@ -14,10 +14,9 @@ import '../../../core/theming/colors.dart';
 import '../logic/cubit/product_details_cubit.dart';
 import '../logic/cubit/product_details_state.dart';
 
-// ignore: must_be_immutable
 class ProductDetailsScreen extends StatelessWidget {
-   ProductDetailsScreen({super.key, required this.productId});
-  int productId;
+  const ProductDetailsScreen({super.key, });
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,6 @@ class ProductDetailsScreen extends StatelessWidget {
               child: const Center(child: CircularProgressIndicator()),
             ),
             success: (product) {
-              productId=product.id;
               if (product != null) {
                 return SingleChildScrollView(
                   child: Directionality(

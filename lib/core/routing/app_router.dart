@@ -12,6 +12,7 @@ import '../../../features/login/ui/login_screen.dart';
 import '../../../features/register/logic/cubit/register_cubit.dart';
 import '../../../features/register/ui/register_screen.dart';
 import '../../features/category/logic/cubit/category_cubit.dart';
+import '../../features/favorite/logic/cubit/favorite_cubit.dart';
 import '../../features/favorite/ui/favorite_screen.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
@@ -45,6 +46,9 @@ class AppRouter {
               BlocProvider(
                 create: (context) => getIt<CategoryCubit>()..getCategories(),
               ),
+              BlocProvider(
+                create: (context) => getIt<FavoriteCubit>()..loadFavorites(),
+              ),
             ],
             child: const HomeScreen(),
           ),
@@ -59,15 +63,14 @@ class AppRouter {
         );
 
       case Routes.productScreen:
-        final productId = settings.arguments;
+        final productId = settings.arguments as int?;
+        print('idddddddddddddddddddddddddddddddddddddddddd${productId}');
         if (productId is int) {
           return MaterialPageRoute(
             builder: (_) => BlocProvider(
               create: (context) =>
                   getIt<GetProductByIdCubit>()..fetchProductById(productId),
-              child: ProductDetailsScreen(
-                productId: productId,
-              ),
+              child: const ProductDetailsScreen(),
             ),
           );
         } else {
@@ -78,13 +81,15 @@ class AppRouter {
           );
         }
 
-         case Routes.favoriteScreen:
+      case Routes.favoriteScreen:
         return MaterialPageRoute(
-          builder: (_) => const FavorietScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<FavoriteCubit>()..loadFavorites(),
+            child: const FavoriteScreen(),
+          ),
         );
 
-        
-         case Routes.cartScreen:
+      case Routes.cartScreen:
         return MaterialPageRoute(
           builder: (_) => const CartScreen(),
         );

@@ -1,6 +1,9 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:e_commerce_app/core/helpers/extensions.dart';
+import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:e_commerce_app/core/theming/styles.dart';
 import 'package:e_commerce_app/features/category/ui/category_screen.dart';
+import 'package:e_commerce_app/features/favorite/ui/favorite_screen.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/home_screen_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     const HomePageContent(),
     const CategoriesScreen(),
-    const CategoriesScreen(),
+    const FavoriteScreen(),
     const CategoriesScreen(),
   ];
 
@@ -47,7 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
         floatingActionButton: selectedPage == 0
             ? null
             : FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(Routes.cartScreen);
+                },
                 backgroundColor: ColorsManager.secondaryPink,
                 shape: const CircleBorder(),
                 child: Icon(Icons.shopping_cart, size: 23.sp),

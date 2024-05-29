@@ -1,11 +1,9 @@
-import 'package:e_commerce_app/core/theming/colors.dart';
-import 'package:e_commerce_app/core/theming/styles.dart';
+import 'package:e_commerce_app/core/widgets/custom_app_bar.dart';
 import 'package:e_commerce_app/features/category/logic/cubit/category_cubit.dart';
 import 'package:e_commerce_app/features/category/logic/cubit/category_state.dart';
 import 'package:e_commerce_app/features/category/ui/widgets/categories_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
@@ -13,26 +11,8 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('التصنيفات'),
-        titleTextStyle: Styles.font16GreyMedium,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        leading:  Icon(
-          Icons.search,
-            size: 22.w,
-          color: ColorsManager.lightGrey,
-        ),
-        actions:  [
-          Padding(
-            padding: EdgeInsets.only(right: 20.w),
-            child:  Icon(
-              Icons.menu,
-              size: 22.w,
-              color: ColorsManager.lightGrey,
-            ),
-          ),
-        ],
+      appBar: const CustomAppBar(
+        title: ('التصنيفات'),
       ),
       body: BlocBuilder<CategoryCubit, CategoryState>(
         builder: (context, state) {

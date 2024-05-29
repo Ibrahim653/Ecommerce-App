@@ -45,29 +45,25 @@ class _HomePageContentState extends State<HomePageContent> {
                       child: const Center(child: CircularProgressIndicator()));
                 },
                 success: (products) {
-                  if (products.results != null &&
-                      products.results!.isNotEmpty) {
+                  if (products.results != null && products.results!.isNotEmpty) {
                     return Stack(
                       children: [
                         GradientBackground(isColor: isColor),
                         Column(
                           children: [
-                            const CustomAppBar(title: 'الرئيسية'),
+                            const CustomAppBar(title: 'الرئيسية', backgroundColor: Colors.transparent,),
                             const CustomSearchTextField(),
                             CarouselSliderImages(
                               activeIndex: activeIndex,
                               onPageChanged: (index) {
                                 setState(() {
-                                  activeIndex == 0
-                                      ? activeIndex = 1
-                                      : activeIndex = 0;
+                                  activeIndex == 0 ? activeIndex = 1 : activeIndex = 0;
                                   isColor = !isColor;
                                 });
                               },
                             ),
                             verticalSpace(20),
-                            SmoothIndeicator(
-                                activeIndex: activeIndex, count: 2),
+                            SmoothIndeicator(activeIndex: activeIndex, count: 2),
                             verticalSpace(30),
                             Padding(
                               padding: EdgeInsets.only(right: 16.w),
@@ -77,10 +73,12 @@ class _HomePageContentState extends State<HomePageContent> {
                                   const TitleAboveList(title: "وصل حديثا"),
                                   ProductsList(
                                     products: products,
+                                    categoryId: 5, // Display products of category 5
                                   ),
                                   const TitleAboveList(title: "الأكثر شعبية"),
                                   ProductsList(
                                     products: products,
+                                    categoryId: 1, // Display products of category 1
                                   ),
                                   verticalSpace(50),
                                 ],
