@@ -53,6 +53,9 @@ class AppRouter {
               BlocProvider.value(
                 value: getIt<CartCubit>()..loadCartItems(),
               ),
+                 BlocProvider(
+                create:(context)=> getIt<GetProductByIdCubit>(),
+              ),
             ],
             child: const HomeScreen(),
           ),
@@ -68,11 +71,11 @@ class AppRouter {
 
       case Routes.productScreen:
         final productId = settings.arguments as int?;
+        print("iddddddddddddddddddddddddd      ${productId}") ;
         if (productId is int) {
           return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-              create: (context) =>
-                  getIt<GetProductByIdCubit>()..fetchProductById(productId),
+            builder: (_) => BlocProvider.value(
+              value: getIt<GetProductByIdCubit>()..fetchProductById(productId),
               child: ProductDetailsScreen(
                 productId: productId,
               ),

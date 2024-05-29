@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/product_details/ui/widgets/quantity_selctor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +10,6 @@ import 'package:e_commerce_app/features/product_details/ui/widgets/product_image
 import 'package:e_commerce_app/features/product_details/ui/widgets/product_price_rating.dart';
 import '../../../core/helpers/spacing.dart';
 import '../../../core/theming/colors.dart';
-import '../../cart/ui/widgets/quantity_slector.dart';
 import '../logic/cubit/product_details_cubit.dart';
 import '../logic/cubit/product_details_state.dart';
 
@@ -62,7 +62,7 @@ class ProductDetailsScreen extends StatelessWidget {
                                 color: ColorsManager.lightGrey.withOpacity(0.7),
                               ),
                               verticalSpace(5.h),
-                              const QuantitySelector(),
+                              const QuantitySelctor(),
                               verticalSpace(25.h),
                               const Center(child: AddToCartButton()),
                               verticalSpace(25.h),

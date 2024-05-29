@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../core/helpers/shared_prefs_helper.dart';
 
 part 'cart_state.dart';
@@ -20,6 +19,16 @@ class CartCubit extends Cubit<CartState> {
     } else {
       await cartService.addProductToCart(product);
     }
+    await loadCartItems();
+  }
+
+  Future<void> addProductToCart(Map<String, dynamic> product) async {
+    await cartService.addProductToCart(product);
+    await loadCartItems();
+  }
+
+  Future<void> removeProductFromCart(int productId) async {
+    await cartService.removeProductFromCart(productId);
     await loadCartItems();
   }
 }

@@ -26,10 +26,8 @@ class CouponSection extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only(right: 18.w, bottom: 16.h),
-                child: Text(
-                  'هل تمتلك كوبون للخصم؟',
-                  style: Styles.font16WhiteBold
-                ),
+                child: Text('هل تمتلك كوبون للخصم؟',
+                    style: Styles.font14WhiteBold),
               ),
               Row(
                 children: [
@@ -50,8 +48,7 @@ class CouponSection extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.transparent),
                         ),
                         contentPadding: EdgeInsets.symmetric(
-                          vertical: 10.h,
-                          horizontal: 10.w,
+                          horizontal: 5.w,
                         ),
                       ),
                       style: const TextStyle(color: Colors.white),
@@ -64,15 +61,12 @@ class CouponSection extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black,
-                        padding: EdgeInsets.symmetric(
-                          vertical: 10.h,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4.0),
-                        ),
-                      ),
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4.0),
+                          ),
+                          padding: EdgeInsets.only(top: 3.h)),
                       child: Text(
                         'تطبيق',
                         style: Styles.font12GreyMedium,

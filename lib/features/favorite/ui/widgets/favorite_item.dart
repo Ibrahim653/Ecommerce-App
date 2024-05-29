@@ -101,7 +101,14 @@ class FavoriteItem extends StatelessWidget {
               AppTextButton(
                 buttonText: 'نقل إلى سلة التسوق',
                 textStyle: Styles.font16WhiteBold,
-                onPressed: () {},
+                onPressed: () {
+                  context.read<FavoriteCubit>().moveToCart({
+                    'id': id,
+                    'name': name,
+                    'price': price,
+                    'image_link': productImage,
+                  });
+                },
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(4.r),
                   bottomRight: Radius.circular(4.r),

@@ -1,10 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:e_commerce_app/features/cart/ui/widgets/quantity_slector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:e_commerce_app/features/cart/ui/widgets/quantity_slector.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/theming/styles.dart';
+import '../logic/cubit/cart_cubit.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
@@ -16,15 +15,11 @@ class CartItem extends StatelessWidget {
   });
   final String name;
   final String imageUrl;
-  final String price;
+  final double price;
   final int id;
-  // int quantity = 1;
 
   @override
   Widget build(BuildContext context) {
-    // double itemPrice = double.parse(price);
-    // double totalPrice = itemPrice * quantity;
-
     return Card(
       elevation: 0,
       child: Column(
@@ -57,7 +52,7 @@ class CartItem extends StatelessWidget {
                       padding: EdgeInsets.only(right: 8.w),
                       child: Row(
                         children: [
-                          Text('211 ', style: Styles.font14CyanBold),
+                          Text(price.toString(), style: Styles.font14CyanBold),
                           Text('ج.م', style: Styles.font12CyanMedium),
                         ],
                       ),
@@ -67,7 +62,12 @@ class CartItem extends StatelessWidget {
               ),
             ],
           ),
-          const QuantitySelector(),
+          QuantitySelector(
+            price: price,
+            onRemove: () {
+              context.read<CartCubit>().removeProductFromCart(id);
+            },
+          ),
         ],
       ),
     );

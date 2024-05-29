@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 
 class TotalSection extends StatelessWidget {
-  const TotalSection({super.key});
+  final int productCount;
+  final double totalPrice;
+
+  const TotalSection({
+    super.key,
+    required this.productCount,
+    required this.totalPrice,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +26,7 @@ class TotalSection extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text('(352)', style: Styles.font14CyanBold),
+                  Text('($productCount)', style: Styles.font14CyanBold),
                   Text(' عنصر', style: Styles.font14GreyMedium),
                 ],
               ),
@@ -28,7 +34,7 @@ class TotalSection extends StatelessWidget {
                 children: [
                   Text('الإجمالى', style: Styles.font14CyanBold),
                   horizontalSpace(5),
-                  Text('70.048 ج.م', style: Styles.font14GreyMedium),
+                  Text('$totalPrice ج.م', style: Styles.font14GreyMedium),
                 ],
               ),
             ],
@@ -38,3 +44,4 @@ class TotalSection extends StatelessWidget {
     );
   }
 }
+

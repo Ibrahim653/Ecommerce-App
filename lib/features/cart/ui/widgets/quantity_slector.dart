@@ -5,7 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/theming/styles.dart';
 
 class QuantitySelector extends StatefulWidget {
-  const QuantitySelector({super.key,  });
+  final double price;
+  final VoidCallback onRemove;
+  
+  const QuantitySelector({
+    super.key,
+    required this.price,
+    required this.onRemove,
+  });
 
   @override
   QuantitySelectorState createState() => QuantitySelectorState();
@@ -30,6 +37,8 @@ class QuantitySelectorState extends State<QuantitySelector> {
 
   @override
   Widget build(BuildContext context) {
+    double totalPrice = widget.price * quantity;
+
     return Row(
       children: [
         Container(
@@ -43,9 +52,7 @@ class QuantitySelectorState extends State<QuantitySelector> {
           child: IconButton(
               icon: Icon(Icons.add, size: 21.sp),
               color: ColorsManager.white,
-              onPressed: () {
-                _incrementQuantity();
-              }),
+              onPressed: _incrementQuantity),
         ),
         SizedBox(
           width: 47.w,
@@ -65,9 +72,7 @@ class QuantitySelectorState extends State<QuantitySelector> {
                 size: 21.sp,
               ),
               color: ColorsManager.white,
-              onPressed: () {
-                _decrementQuantity();
-              }),
+              onPressed: _decrementQuantity),
         ),
         Expanded(
           child: Container(
@@ -84,24 +89,26 @@ class QuantitySelectorState extends State<QuantitySelector> {
             ),
             child: Center(
               child: Text(
-                '398.00 ج.م',
+                '$totalPrice ج.م',
                 style: Styles.font16GreyMedium,
               ),
             ),
           ),
         ),
         Container(
-               height: 38.h,
+          height: 38.h,
           width: 38.w,
-              decoration: BoxDecoration(
-            color:ColorsManager.secondaryPink ,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(3.r),
-              )),
-            child: IconButton(
-                onPressed: () {}, icon: const Icon(Icons.delete_forever),
-                color: ColorsManager.white,
-                ))
+          decoration: BoxDecoration(
+            color: ColorsManager.secondaryPink,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(3.r),
+            ),
+          ),
+          child: IconButton(
+              onPressed: widget.onRemove,
+              icon: const Icon(Icons.delete_forever),
+              color: ColorsManager.white),
+        )
       ],
     );
   }

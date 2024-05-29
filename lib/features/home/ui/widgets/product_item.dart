@@ -111,7 +111,7 @@ class ProductItem extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {
-                                BlocProvider.of<CartCubit>(context).toggleCart({
+                                context.read<CartCubit>().toggleCart({
                                   'id': id,
                                   'name': name,
                                   'price': price,

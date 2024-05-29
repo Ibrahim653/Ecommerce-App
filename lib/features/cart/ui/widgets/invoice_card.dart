@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 
 class InvoiceCard extends StatelessWidget {
-  const InvoiceCard({super.key});
+  final double totalPrice;
+  static const double tax = 5.0;
+
+  const InvoiceCard({
+    super.key,
+    required this.totalPrice,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final double totalAmount = totalPrice + tax;
+
     return SizedBox(
       height: 130.h,
       child: Card(
@@ -22,7 +29,7 @@ class InvoiceCard extends StatelessWidget {
                 children: [
                   Text('الإجمالى', style: Styles.font14CyanBold),
                   horizontalSpace(5),
-                  Text('70.048 ج.م', style: Styles.font14GreyMedium),
+                  Text('${totalPrice.roundToDouble()} ج.م', style: Styles.font14GreyMedium),
                 ],
               ),
               const Spacer(),
@@ -30,7 +37,7 @@ class InvoiceCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('الضرائب', style: Styles.font14CyanBold),
-                  Text('5.00 ج.م', style: Styles.font14GreyMedium),
+                  Text('$tax ج.م', style: Styles.font14GreyMedium),
                 ],
               ),
               const Spacer(),
@@ -43,7 +50,7 @@ class InvoiceCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('المبلغ المطلوب', style: Styles.font14CyanBold),
-                  Text('75.048 ج.م', style: Styles.font14GreyMedium),
+                  Text('${totalAmount.roundToDouble()} ج.م', style: Styles.font14GreyMedium),
                 ],
               ),
               const Spacer(),

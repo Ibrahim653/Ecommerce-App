@@ -40,6 +40,11 @@ class Styles {
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.primaryCyan,
   );
+    static TextStyle font14WhiteBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.white,
+  );
   static TextStyle font16WhiteBold = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,

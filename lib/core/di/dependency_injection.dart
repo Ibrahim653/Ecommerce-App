@@ -47,7 +47,8 @@ Future<void> setupGetIt() async {
 
   //add to favorite
   getIt.registerLazySingleton<FavoriteService>(() => FavoriteService());
-  getIt.registerLazySingleton<FavoriteCubit>(() => FavoriteCubit(getIt()));
+    getIt.registerLazySingleton<FavoriteCubit>(() => FavoriteCubit(getIt(), getIt<CartCubit>()));
+
 
   //add to cart
   getIt.registerLazySingleton<CartService>(() => CartService());

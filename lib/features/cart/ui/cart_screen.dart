@@ -23,36 +23,46 @@ class CartScreen extends StatelessWidget {
         appBar: const CustomAppBar(title: 'سلة التسوق'),
         body: BlocBuilder<CartCubit, CartState>(
           builder: (context, state) {
-            final cartItem = state.cartItems;
+            final cartItems = state.cartItems;
 
-            if (cartItem.isEmpty) {
+            if (cartItems.isEmpty) {
               return Center(
-                  child: Text(
-                'No Products added',
-                style: Styles.font16GreyMedium,
-              ));
+                child: Text(
+                  'No Products added',
+                  style: Styles.font16GreyMedium,
+                ),
+              );
             }
+            final int totalProducts = cartItems.length;
+            final double totalPrice = cartItems.fold(
+              0,
+              (sum, item) => sum + (double.parse(item['price']) + cartItems.length),
+            );
+
             return SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Column(
                   children: [
-                    const TotalSection(),
-                    ...state.cartItems.map((item) => CartItem(
+                    TotalSection(
+                      productCount: totalProducts,
+                      totalPrice: totalPrice.roundToDouble(),
+                    ),
+                    ...cartItems.map((item) => CartItem(
                           name: item['name'],
                           imageUrl: item['image_link'],
-                          price: item['price'],
+                          price: double.parse(item['price']),
                           id: item['id'],
                         )),
                     verticalSpace(15),
                     const CouponSection(),
-                    const InvoiceCard(),
+                    InvoiceCard(totalPrice: totalPrice),
                     verticalSpace(5),
                     AppTextButton(
                       buttonText: 'إتمام الشراء',
                       textStyle: Styles.font16WhiteBold,
                       onPressed: () {},
-                    )
+                    ),
                   ],
                 ),
               ),

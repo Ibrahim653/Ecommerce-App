@@ -7,7 +7,6 @@ import 'package:e_commerce_app/core/widgets/custom_app_bar.dart';
 
 import '../logic/cubit/favorite_cubit.dart';
 
-
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
 
@@ -26,7 +25,7 @@ class FavoriteScreen extends StatelessWidget {
                 builder: (context, state) {
                   final favorites = state.favorites;
                   if (favorites.isEmpty) {
-                    return  Center(child: Text('No favorites added',style: Styles.font16GreyMedium,));
+                    return Center(child: Text('No favorites added', style: Styles.font16GreyMedium,));
                   }
                   return ListView.builder(
                     itemCount: favorites.length,
