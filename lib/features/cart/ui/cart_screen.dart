@@ -36,7 +36,7 @@ class CartScreen extends StatelessWidget {
             final int totalProducts = cartItems.length;
             final double totalPrice = cartItems.fold(
               0,
-              (sum, item) => sum + (double.parse(item['price']) + cartItems.length),
+              (sum, item) => sum + (double.parse(item['price']) ),
             );
 
             return SingleChildScrollView(
@@ -46,7 +46,7 @@ class CartScreen extends StatelessWidget {
                   children: [
                     TotalSection(
                       productCount: totalProducts,
-                      totalPrice: totalPrice.roundToDouble(),
+                      totalPrice: (totalPrice).roundToDouble(),
                     ),
                     ...cartItems.map((item) => CartItem(
                           name: item['name'],
