@@ -30,7 +30,7 @@ abstract class ApiService {
   Future<CategoryResponse> getCategories(@Header('Authorization') String token);
 
  @GET(ApiConstants.getProductById)
-  Future<ProductDetailsModel> getProductById(
+  Future<List<ProductDetailsModel>> getProductById(
       @Header('Authorization') String token,
       @Path('id') int id,
   );

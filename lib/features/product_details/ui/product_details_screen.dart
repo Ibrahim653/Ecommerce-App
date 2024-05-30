@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/features/product_details/ui/widgets/quantity_selctor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,6 +7,7 @@ import 'package:e_commerce_app/features/product_details/ui/widgets/product_descr
 import 'package:e_commerce_app/features/product_details/ui/widgets/product_expansion_tile.dart';
 import 'package:e_commerce_app/features/product_details/ui/widgets/product_image.dart';
 import 'package:e_commerce_app/features/product_details/ui/widgets/product_price_rating.dart';
+import 'package:e_commerce_app/features/product_details/ui/widgets/quantity_selctor.dart';
 import '../../../core/helpers/spacing.dart';
 import '../../../core/theming/colors.dart';
 import '../logic/cubit/product_details_cubit.dart';
@@ -29,7 +29,8 @@ class ProductDetailsScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
               child: const Center(child: CircularProgressIndicator()),
             ),
-            success: (product) {
+            success: (products) {
+              final product = products[0];
               if (product != null) {
                 return SingleChildScrollView(
                   child: Directionality(
@@ -45,7 +46,8 @@ class ProductDetailsScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              ProductDescription(description: product.description),
+                              ProductDescription(
+                                  description: product.description),
                               verticalSpace(5.h),
                               ProductPriceAndRating(
                                 price: product.price,
@@ -56,7 +58,8 @@ class ProductDetailsScreen extends StatelessWidget {
                                 thickness: 1,
                                 color: ColorsManager.lightGrey.withOpacity(0.7),
                               ),
-                              ProductDetailsExpansionTile(description: product.description),
+                              ProductDetailsExpansionTile(
+                                  description: product.description),
                               Divider(
                                 thickness: 1,
                                 color: ColorsManager.lightGrey.withOpacity(0.7),
@@ -74,7 +77,8 @@ class ProductDetailsScreen extends StatelessWidget {
                   ),
                 );
               } else {
-                return const Center(child: Text('No product details available'));
+                return const Center(
+                    child: Text('No product details available'));
               }
             },
             error: (String error) => Center(child: Text(error)),
