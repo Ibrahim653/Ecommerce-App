@@ -78,6 +78,9 @@ class AppRouter {
               BlocProvider.value(
                 value:  getIt<FavoriteCubit>()..loadFavorites(),
               ),
+                BlocProvider.value(
+                value:  getIt<CartCubit>()..loadCartItems(),
+              ),
             ],
             child: ProductDetailsScreen(
               productId: productId,

@@ -76,10 +76,10 @@ class ProductDetailsScreen extends StatelessWidget {
                               verticalSpace(25.h),
                               Center(
                                   child: AddToCartButton(
-                                productId: product.id,
-                                productDetails: const <String, dynamic>{
-                                  'id': 1
-                                },
+                                id: product.id,
+                                name: product.name,
+                                price: product.price,
+                                productImage: product.imageLink,
                               )),
                               verticalSpace(25.h),
                             ],

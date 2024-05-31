@@ -84,7 +84,7 @@ class RegisterBlocListner extends StatelessWidget {
         ),
         content: Text(
           error,
-          style: Styles.font15DarkBlueMedium,
+          style: Styles.font14CyanBold,
         ),
         actions: [
           TextButton(
@@ -93,7 +93,7 @@ class RegisterBlocListner extends StatelessWidget {
             },
             child: Text(
               'Got it',
-              style: Styles.font14BlueSemiBold,
+              style: Styles.font14CyanBold,
             ),
           ),
         ],
