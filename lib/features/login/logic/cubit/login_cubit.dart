@@ -13,18 +13,20 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this._loginRepo) : super(const LoginState.initial());
 
   TextEditingController passwordController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   static LoginCubit get(context) => BlocProvider.of(context);
 
-    bool autoLogin = false;
+  bool autoLogin = false;
 
- autoLoginFun() {
+  autoLoginFun() {
     autoLogin = !autoLogin;
     emit(LoginState.authenticated(isLoggedIn: autoLogin));
   }
-    void signout(BuildContext context) async {
+
+  void signout(BuildContext context) async {
     try {
+      await CacheHelper.remove(Constants.username);
       await CacheHelper.remove(Constants.autoLogin).then((value) {
         return Navigator.pushNamed(context, Routes.loginScreen);
       });
@@ -33,12 +35,11 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
-
   void emitLoginStates() async {
     emit(const LoginState.loading());
     final response = await _loginRepo.login(
       LoginRequestBody(
-        username: emailController.text,
+        username: userNameController.text,
         password: passwordController.text,
       ),
     );
@@ -48,13 +49,10 @@ class LoginCubit extends Cubit<LoginState> {
             Constants.accessToken, loginResponse.access);
         await CacheHelper.saveString(
             Constants.accessToken, loginResponse.refresh);
-                autoLogin == true
+        autoLogin == true
             ? await CacheHelper.saveString(Constants.autoLogin, "autoLogin")
             : null;
-
-        // UserCredentials userCredentials = UserCredentials(
-        //     email: emailController.text, password: passwordController.text);
-        // isRememberMe ? CacheHelper.saveUserCredentials(userCredentials) : null;
+        await CacheHelper.saveString(Constants.username, userNameController.text);
         emit(LoginState.success(loginResponse));
       },
       failure: (error) {

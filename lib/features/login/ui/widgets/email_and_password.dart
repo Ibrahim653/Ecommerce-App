@@ -37,7 +37,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                 return 'برجاء إدخال اسم مستخدم صحيح';
               }
             },
-            controller: context.read<LoginCubit>().emailController,
+            controller: context.read<LoginCubit>().userNameController,
           ),
           verticalSpace(16.h),
           Padding(
