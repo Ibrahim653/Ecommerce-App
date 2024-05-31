@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/product_details/ui/widgets/product_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,10 +26,7 @@ class ProductDetailsScreen extends StatelessWidget {
         builder: (context, state) {
           return state.when(
             initial: () => const Center(child: Text('Initial State')),
-            loading: () => SizedBox(
-              height: MediaQuery.of(context).size.height,
-              child: const Center(child: CircularProgressIndicator()),
-            ),
+            loading: () => const ProductShimmer(),
             success: (products) {
               final product = products[0];
               if (product != null) {
@@ -45,7 +43,7 @@ class ProductDetailsScreen extends StatelessWidget {
                           price: product.price,
                           productImage: product.imageLink,
                         ),
-                        verticalSpace(21.h),
+                        verticalSpace(21),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 16.w),
                           child: Column(
@@ -53,12 +51,12 @@ class ProductDetailsScreen extends StatelessWidget {
                             children: [
                               ProductDescription(
                                   description: product.description),
-                              verticalSpace(5.h),
+                              verticalSpace(5),
                               ProductPriceAndRating(
                                 price: product.price,
                                 rate: product.rate,
                               ),
-                              SizedBox(height: 5.h),
+                              verticalSpace(5),
                               Divider(
                                 thickness: 1,
                                 color: ColorsManager.lightGrey.withOpacity(0.7),
@@ -69,11 +67,11 @@ class ProductDetailsScreen extends StatelessWidget {
                                 thickness: 1,
                                 color: ColorsManager.lightGrey.withOpacity(0.7),
                               ),
-                              verticalSpace(5.h),
+                              verticalSpace(5),
                               QuantitySelector(
                                 price: double.parse(product.price),
                               ),
-                              verticalSpace(25.h),
+                              verticalSpace(25),
                               Center(
                                   child: AddToCartButton(
                                 id: product.id,
@@ -81,7 +79,7 @@ class ProductDetailsScreen extends StatelessWidget {
                                 price: product.price,
                                 productImage: product.imageLink,
                               )),
-                              verticalSpace(25.h),
+                              verticalSpace(25),
                             ],
                           ),
                         ),
