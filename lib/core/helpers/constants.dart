@@ -7,4 +7,6 @@ class Constants {
   static const String fontFamily = 'Tajawal';
   static const String accessToken = '';
   static const String refreshToken = '';
+    static const String autoLogin = 'autoLogin';
+
 }

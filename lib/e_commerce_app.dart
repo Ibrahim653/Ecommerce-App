@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce_app/core/helpers/constants.dart';
+import 'package:e_commerce_app/core/helpers/shared_prefs_helper.dart';
 import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:e_commerce_app/core/theming/colors.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,9 @@ class EcommerceApp extends StatelessWidget {
             primaryColor: ColorsManager.mainBlue,
             fontFamily: Constants.fontFamily),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.loginScreen,
+        initialRoute:  CacheHelper.getString(Constants.autoLogin) == null
+            ? Routes.loginScreen
+            : Routes.homeScreen,
       ),
     );
   }

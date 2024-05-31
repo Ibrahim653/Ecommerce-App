@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/login/ui/widgets/remember_check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,7 +50,9 @@ class LoginScreen extends StatelessWidget {
                 ),
                 verticalSpace(48),
                 const EmailAndPassword(),
-                verticalSpace(29),
+                verticalSpace(10),
+                const TwoCheckBox(),
+                verticalSpace(25),
                 AppTextButton(
                   buttonText: 'الدخول',
                   textStyle: Styles.font16WhiteBold,

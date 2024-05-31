@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/theming/colors.dart';
+import '../../profile/ui/profile_Screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const HomePageContent(),
     const CategoriesScreen(),
     const FavoriteScreen(),
-    const CategoriesScreen(),
+    const ProfileScreen(),
   ];
 
   @override

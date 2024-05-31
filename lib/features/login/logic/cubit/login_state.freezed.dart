@@ -20,6 +20,7 @@ mixin _$LoginState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(bool isLoggedIn) authenticated,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
   }) =>
@@ -28,6 +29,7 @@ mixin _$LoginState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(bool isLoggedIn)? authenticated,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
   }) =>
@@ -36,6 +38,7 @@ mixin _$LoginState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(bool isLoggedIn)? authenticated,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -45,6 +48,7 @@ mixin _$LoginState<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
+    required TResult Function(_Authenticated<T> value) authenticated,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) =>
@@ -53,6 +57,7 @@ mixin _$LoginState<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
+    TResult? Function(_Authenticated<T> value)? authenticated,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) =>
@@ -61,6 +66,7 @@ mixin _$LoginState<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
+    TResult Function(_Authenticated<T> value)? authenticated,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -126,6 +132,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(bool isLoggedIn) authenticated,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
   }) {
@@ -137,6 +144,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(bool isLoggedIn)? authenticated,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
   }) {
@@ -148,6 +156,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(bool isLoggedIn)? authenticated,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -163,6 +172,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
+    required TResult Function(_Authenticated<T> value) authenticated,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) {
@@ -174,6 +184,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
+    TResult? Function(_Authenticated<T> value)? authenticated,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -185,6 +196,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
+    TResult Function(_Authenticated<T> value)? authenticated,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -240,6 +252,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(bool isLoggedIn) authenticated,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
   }) {
@@ -251,6 +264,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(bool isLoggedIn)? authenticated,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
   }) {
@@ -262,6 +276,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(bool isLoggedIn)? authenticated,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -277,6 +292,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
+    required TResult Function(_Authenticated<T> value) authenticated,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) {
@@ -288,6 +304,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
+    TResult? Function(_Authenticated<T> value)? authenticated,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -299,6 +316,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
+    TResult Function(_Authenticated<T> value)? authenticated,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -312,6 +330,160 @@ class _$LoadingImpl<T> implements Loading<T> {
 
 abstract class Loading<T> implements LoginState<T> {
   const factory Loading() = _$LoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$AuthenticatedImplCopyWith<T, $Res> {
+  factory _$$AuthenticatedImplCopyWith(_$AuthenticatedImpl<T> value,
+          $Res Function(_$AuthenticatedImpl<T>) then) =
+      __$$AuthenticatedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({bool isLoggedIn});
+}
+
+/// @nodoc
+class __$$AuthenticatedImplCopyWithImpl<T, $Res>
+    extends _$LoginStateCopyWithImpl<T, $Res, _$AuthenticatedImpl<T>>
+    implements _$$AuthenticatedImplCopyWith<T, $Res> {
+  __$$AuthenticatedImplCopyWithImpl(_$AuthenticatedImpl<T> _value,
+      $Res Function(_$AuthenticatedImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoggedIn = null,
+  }) {
+    return _then(_$AuthenticatedImpl<T>(
+      isLoggedIn: null == isLoggedIn
+          ? _value.isLoggedIn
+          : isLoggedIn // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthenticatedImpl<T> implements _Authenticated<T> {
+  const _$AuthenticatedImpl({required this.isLoggedIn});
+
+  @override
+  final bool isLoggedIn;
+
+  @override
+  String toString() {
+    return 'LoginState<$T>.authenticated(isLoggedIn: $isLoggedIn)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthenticatedImpl<T> &&
+            (identical(other.isLoggedIn, isLoggedIn) ||
+                other.isLoggedIn == isLoggedIn));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isLoggedIn);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthenticatedImplCopyWith<T, _$AuthenticatedImpl<T>> get copyWith =>
+      __$$AuthenticatedImplCopyWithImpl<T, _$AuthenticatedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(bool isLoggedIn) authenticated,
+    required TResult Function(T data) success,
+    required TResult Function(String error) error,
+  }) {
+    return authenticated(isLoggedIn);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(bool isLoggedIn)? authenticated,
+    TResult? Function(T data)? success,
+    TResult? Function(String error)? error,
+  }) {
+    return authenticated?.call(isLoggedIn);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(bool isLoggedIn)? authenticated,
+    TResult Function(T data)? success,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (authenticated != null) {
+      return authenticated(isLoggedIn);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(_Authenticated<T> value) authenticated,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+  }) {
+    return authenticated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(_Authenticated<T> value)? authenticated,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+  }) {
+    return authenticated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(_Authenticated<T> value)? authenticated,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    required TResult orElse(),
+  }) {
+    if (authenticated != null) {
+      return authenticated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Authenticated<T> implements LoginState<T> {
+  const factory _Authenticated({required final bool isLoggedIn}) =
+      _$AuthenticatedImpl<T>;
+
+  bool get isLoggedIn;
+  @JsonKey(ignore: true)
+  _$$AuthenticatedImplCopyWith<T, _$AuthenticatedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -381,6 +553,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(bool isLoggedIn) authenticated,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
   }) {
@@ -392,6 +565,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(bool isLoggedIn)? authenticated,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
   }) {
@@ -403,6 +577,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(bool isLoggedIn)? authenticated,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -418,6 +593,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
+    required TResult Function(_Authenticated<T> value) authenticated,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) {
@@ -429,6 +605,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
+    TResult? Function(_Authenticated<T> value)? authenticated,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -440,6 +617,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
+    TResult Function(_Authenticated<T> value)? authenticated,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -526,6 +704,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(bool isLoggedIn) authenticated,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
   }) {
@@ -537,6 +716,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(bool isLoggedIn)? authenticated,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
   }) {
@@ -548,6 +728,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(bool isLoggedIn)? authenticated,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -563,6 +744,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
+    required TResult Function(_Authenticated<T> value) authenticated,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) {
@@ -574,6 +756,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
+    TResult? Function(_Authenticated<T> value)? authenticated,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -585,6 +768,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
+    TResult Function(_Authenticated<T> value)? authenticated,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
