@@ -26,12 +26,12 @@ abstract class ApiService {
   @GET(ApiConstants.getProducts)
   Future<ProductsModel> getProducts(@Header('Authorization') String token);
 
-    @GET(ApiConstants.getCategories)
+  @GET(ApiConstants.getCategories)
   Future<CategoryResponse> getCategories(@Header('Authorization') String token);
 
- @GET(ApiConstants.getProductById)
+  @GET(ApiConstants.getProductById)
   Future<List<ProductDetailsModel>> getProductById(
-      @Header('Authorization') String token,
-      @Path('id') int id,
+    @Header('Authorization') String token,
+    @Path('id') int id,
   );
 }

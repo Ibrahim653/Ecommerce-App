@@ -39,7 +39,12 @@ class ProductDetailsScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ProductImage(imageLink: product.imageLink),
-                        const FavoriteShareButtons(),
+                        FavoriteShareButtons(
+                          id: product.id,
+                          name: product.name,
+                          price: product.price,
+                          productImage: product.imageLink,
+                        ),
                         verticalSpace(21.h),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -65,9 +70,17 @@ class ProductDetailsScreen extends StatelessWidget {
                                 color: ColorsManager.lightGrey.withOpacity(0.7),
                               ),
                               verticalSpace(5.h),
-                              const QuantitySelctor(),
+                              QuantitySelector(
+                                price: double.parse(product.price),
+                              ),
                               verticalSpace(25.h),
-                              const Center(child: AddToCartButton()),
+                              Center(
+                                  child: AddToCartButton(
+                                productId: product.id,
+                                productDetails: const <String, dynamic>{
+                                  'id': 1
+                                },
+                              )),
                               verticalSpace(25.h),
                             ],
                           ),

@@ -67,25 +67,24 @@ class AppRouter {
         );
 
       case Routes.productScreen:
-        final productId = settings.arguments as int?;
-        print("iddddddddddddddddddddddddd      ${productId}");
-        if (productId is int) {
-          return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-              value: getIt<GetProductByIdCubit>()..fetchProductById(productId),
-              child: ProductDetailsScreen(
-                productId: productId,
+        final productId = settings.arguments as int;
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider.value(
+                value: getIt<GetProductByIdCubit>()
+                  ..fetchProductById(productId),
               ),
+              BlocProvider.value(
+                value:  getIt<FavoriteCubit>()..loadFavorites(),
+              ),
+            ],
+            child: ProductDetailsScreen(
+              productId: productId,
             ),
-          );
-        } else {
-          return MaterialPageRoute(
-            builder: (_) => Scaffold(
-              body: Center(child: Text('Invalid Product ID: $productId')),
-            ),
-          );
-        }
-
+          ),
+        );
+      
       case Routes.favoriteScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

@@ -5,7 +5,7 @@ import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 
 class ProductDetailsExpansionTile extends StatelessWidget {
-  final String? description;
+  final String description;
 
   const ProductDetailsExpansionTile({required this.description, super.key});
 
@@ -21,7 +21,7 @@ class ProductDetailsExpansionTile extends StatelessWidget {
       ),
       children: [
         Text(
-          description ?? 'description',
+          description ,
           textDirection: TextDirection.ltr,
           style: TextStyle(
             fontSize: 16.sp,

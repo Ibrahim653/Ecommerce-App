@@ -4,14 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theming/styles.dart';
 
-class QuantitySelctor extends StatefulWidget {
-  const QuantitySelctor({super.key});
+class QuantitySelector extends StatefulWidget {
+  final double price;
+  const QuantitySelector({super.key, required this.price});
 
   @override
-  QuantitySelctorState createState() => QuantitySelctorState();
+  QuantitySelectorState createState() => QuantitySelectorState();
 }
 
-class QuantitySelctorState extends State<QuantitySelctor> {
+class QuantitySelectorState extends State<QuantitySelector> {
   int quantity = 1;
 
   void _incrementQuantity() {
@@ -30,6 +31,7 @@ class QuantitySelctorState extends State<QuantitySelctor> {
 
   @override
   Widget build(BuildContext context) {
+    double totalPrice = widget.price * quantity;
     return Row(
       children: [
         Container(
@@ -81,15 +83,11 @@ class QuantitySelctorState extends State<QuantitySelctor> {
           width: 159.w,
           decoration: BoxDecoration(
               color: ColorsManager.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(4.r),
-                bottomLeft: Radius.circular(4.r),
-                topRight: Radius.circular(4.r),
-                bottomRight: Radius.circular(4.r),
-              )),
+              borderRadius: BorderRadius.circular(4.r),
+          ),
           child: Center(
             child: Text(
-              '398.00 ج.م',
+              '${totalPrice.toStringAsFixed(2)} ج.م',
               style: Styles.font16GreyMedium,
             ),
           ),
