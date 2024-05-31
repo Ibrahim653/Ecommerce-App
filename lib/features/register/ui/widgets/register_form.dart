@@ -33,10 +33,16 @@ class _RegisterFormState extends State<RegisterForm> {
             ),
           ),
           CustomTextFormField(
-            validator: (value) {
-              if (value == null || value.isEmpty) {
+             validator: (value) {
+              if (value == null ||
+                  value.isEmpty )
+                 {
                 return 'هذا الحقل مطلوب';
-              }
+             
+            }else if(!AppRegex.isUsernameValid(value)){
+              return 'يجب ان يكون حروف وارقام';
+            }
+            return null ;
             },
             controller: context.read<RegisterCubit>().usernameController,
           ),
@@ -123,10 +129,16 @@ class _RegisterFormState extends State<RegisterForm> {
                 ),
               ),
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
+           validator: (value) {
+              if (value == null ||
+                  value.isEmpty )
+                 {
                 return 'هذا الحقل مطلوب';
-              }
+             
+            }else if(!AppRegex.isPasswordValid(value)){
+              return 'يجب أن تحتوي على حرف كبير وعلامة ورقم';
+            }
+            return null ;
             },
           ),
           verticalSpace(18),

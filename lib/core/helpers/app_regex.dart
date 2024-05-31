@@ -9,4 +9,9 @@ class AppRegex {
             r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$")
         .hasMatch(password);
   }
+
+  static bool isUsernameValid(String username) {
+    // Ensure username has at least one letter and one number
+    return RegExp(r'^[a-zA-Z]+[0-9]+|[0-9]+[a-zA-Z]+$').hasMatch(username);
+  }
 }

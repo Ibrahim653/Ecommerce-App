@@ -34,7 +34,7 @@ class LoginBlocListener extends StatelessWidget {
           },
           error: (error) {
             setupErrorState(
-                context, "حدث خطأ أثناء تسجيل الدخول\nحاول مرة أخرى");
+                context, 'اسم المستخدم أو كلمة السر غير صحيح');
           },
         );
       },

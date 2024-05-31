@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/helpers/shared_prefs_helper.dart';
 import '../../data/models/register_request_body.dart';
 import '../../data/repos/register_repo.dart';
 import 'register_state.dart';
@@ -28,7 +29,11 @@ class RegisterCubit extends Cubit<RegisterState> {
       ),
     );
     response.when(
-      success: (registerResponse) {
+      success: (registerResponse) async{
+               await CacheHelper.saveString('username', usernameController.text);
+        await CacheHelper.saveString('email', emailController.text);
+        await CacheHelper.saveString('firstName', firstNameController.text);
+        await CacheHelper.saveString('lastName', lastNameController.text);
         emit(RegisterState.success(registerResponse));
       },
       failure: (error) {

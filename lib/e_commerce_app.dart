@@ -28,7 +28,7 @@ class EcommerceApp extends StatelessWidget {
             primaryColor: ColorsManager.mainBlue,
             fontFamily: Constants.fontFamily),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.loginScreen,
       ),
     );
   }

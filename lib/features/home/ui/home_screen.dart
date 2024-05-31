@@ -93,7 +93,6 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           splashColor: ColorsManager.primaryCyan.withOpacity(0.2),
           backgroundColor: Colors.white,
-          
         ),
       ),
     );

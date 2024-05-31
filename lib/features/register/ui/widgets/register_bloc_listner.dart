@@ -47,10 +47,13 @@ class RegisterBlocListner extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Signup Successful'),
-          content: const SingleChildScrollView(
+          content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('Congratulations, you have signed up successfully!'),
+                Text(
+                  'Congratulations, you have signed up successfully!',
+                  style: Styles.font14GreyMedium,
+                ),
               ],
             ),
           ),
@@ -83,7 +86,7 @@ class RegisterBlocListner extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          'Something went wrong',
           style: Styles.font14CyanBold,
         ),
         actions: [
