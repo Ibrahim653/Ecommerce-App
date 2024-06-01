@@ -28,7 +28,7 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       await CacheHelper.remove(Constants.username);
       await CacheHelper.remove(Constants.autoLogin).then((value) {
-        return Navigator.pushNamed(context, Routes.loginScreen);
+        return Navigator.pushReplacementNamed(context, Routes.loginScreen);
       });
     } catch (error) {
       emit(LoginState.error(error: error.toString()));
@@ -52,7 +52,8 @@ class LoginCubit extends Cubit<LoginState> {
         autoLogin == true
             ? await CacheHelper.saveString(Constants.autoLogin, "autoLogin")
             : null;
-        await CacheHelper.saveString(Constants.username, userNameController.text);
+        await CacheHelper.saveString(
+            Constants.username, userNameController.text);
         emit(LoginState.success(loginResponse));
       },
       failure: (error) {

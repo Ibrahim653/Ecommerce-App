@@ -65,7 +65,7 @@ class RegisterBlocListner extends StatelessWidget {
                 disabledForegroundColor: Colors.grey,
               ),
               onPressed: () {
-                context.pushNamed(Routes.loginScreen);
+                context.pushReplacementNamed(Routes.loginScreen);
               },
               child: const Text('Continue'),
             ),

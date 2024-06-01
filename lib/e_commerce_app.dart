@@ -15,7 +15,6 @@ class EcommerceApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 760),
       minTextAdapt: true,
-      //  splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'دكانى',
