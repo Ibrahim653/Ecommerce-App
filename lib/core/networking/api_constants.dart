@@ -5,6 +5,7 @@ class ApiConstants {
   static const String getProducts = 'api/v1/products/';
   static const String getCategories = 'api/v1/categories';
   static const String getProductById = 'api/v1/products/{id}/';
+  static const String getProductsByCategoryId = 'api/v1/products/category/{id}';
 }
 
 class ApiErrors {

@@ -77,14 +77,12 @@ class _HomePageContentState extends State<HomePageContent> {
                                   const TitleAboveList(title: "وصل حديثا"),
                                   ProductsList(
                                     products: products,
-                                    categoryId:
-                                        5, // Display products of category 5
+                                    categoryId: 5, // Display products of category 5
                                   ),
                                   const TitleAboveList(title: "الأكثر شعبية"),
                                   ProductsList(
                                     products: products,
-                                    categoryId:
-                                        1, // Display products of category 1
+                                    categoryId: 1, // Display products of category 1
                                   ),
                                   verticalSpace(50),
                                 ],

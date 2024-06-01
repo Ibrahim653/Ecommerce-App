@@ -14,7 +14,7 @@ class GetProductsRepo {
       ) async {
     try {
       String accessToken = CacheHelper.getString(Constants.accessToken) ?? "";
-      String refreshToken = CacheHelper.getString(Constants.refreshToken) ?? "";
+   //   String refreshToken = CacheHelper.getString(Constants.refreshToken) ?? "";
       final  response =
           await _apiService.getProducts("Bearer $accessToken");
       return ApiResult.success(response);

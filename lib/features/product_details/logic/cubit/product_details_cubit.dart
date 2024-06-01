@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/repos/product_details_repo.dart';
 
 class GetProductByIdCubit extends Cubit<ProductDetailsState> {
-  final GetProductByIdRepo _getProductByIdRepo;
+  final GetProductByIdRepo _getProductByIdRepo;   
 
   GetProductByIdCubit(this._getProductByIdRepo)
       : super(const ProductDetailsState.initial());

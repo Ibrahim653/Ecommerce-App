@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/home/products_by_category_id/ui/products_by_category_id_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commerce_app/features/cart/ui/cart_screen.dart';
@@ -14,6 +15,7 @@ import 'package:e_commerce_app/features/home/logic/product_cubit/get_product_cub
 import 'package:e_commerce_app/features/category/logic/cubit/category_cubit.dart';
 import 'package:e_commerce_app/features/favorite/logic/cubit/favorite_cubit.dart';
 
+import '../../features/home/products_by_category_id/logic/cubit/categories_details_cubit.dart';
 import '../../features/login/logic/cubit/login_cubit.dart';
 import '../../features/product_details/logic/cubit/product_details_cubit.dart';
 import '../../features/register/logic/cubit/register_cubit.dart';
@@ -42,7 +44,7 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (context) =>  getIt<GetProductCubit>()..getAllProducts(),
+                create: (context) => getIt<GetProductCubit>()..getAllProducts(),
               ),
               BlocProvider(
                 create: (context) => getIt<CategoryCubit>()..getCategories(),
@@ -76,10 +78,10 @@ class AppRouter {
                   ..fetchProductById(productId),
               ),
               BlocProvider.value(
-                value:  getIt<FavoriteCubit>()..loadFavorites(),
+                value: getIt<FavoriteCubit>()..loadFavorites(),
               ),
-                BlocProvider.value(
-                value:  getIt<CartCubit>()..loadCartItems(),
+              BlocProvider.value(
+                value: getIt<CartCubit>()..loadCartItems(),
               ),
             ],
             child: ProductDetailsScreen(
@@ -87,7 +89,7 @@ class AppRouter {
             ),
           ),
         );
-      
+
       case Routes.favoriteScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -101,6 +103,26 @@ class AppRouter {
           builder: (_) => BlocProvider.value(
             value: getIt<CartCubit>(),
             child: const CartScreen(),
+          ),
+        );
+
+      case Routes.categoryDetailsScreen:
+        final categoryId = settings.arguments as int;
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider.value(
+                value: getIt<GetCategoriesByIdCubit>()
+                  ..fetchCategoriesById(categoryId),
+              ),
+              BlocProvider.value(
+                value: getIt<FavoriteCubit>()..loadFavorites(),
+              ),
+              BlocProvider.value(
+                value: getIt<CartCubit>()..loadCartItems(),
+              ),
+            ],
+            child: CategoriesDetailsScreen(categoryId: categoryId),
           ),
         );
 

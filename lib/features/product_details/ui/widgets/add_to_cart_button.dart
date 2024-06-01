@@ -54,16 +54,6 @@ class AddToCartButton extends StatelessWidget {
             isInCart ? 'مضاف للسلة' : 'اضف للسلة',
             style: isInCart ? Styles.font16PinkBold : Styles.font16WhiteBold,
           ),
-
-          // icon: Icon(
-          //   Icons.add_shopping_cart,
-          //   color: Colors.white,
-          //   size: 21.sp,
-          // ),
-          // label: Text(
-          //   isInCart ? 'مضاف للسلة' : 'اضف للسلة',
-          //   style: Styles.font16WhiteBold,
-          // ),
         );
       },
     );

@@ -8,11 +8,13 @@ class ProductsList extends StatelessWidget {
     super.key,
     required this.products,
     required this.categoryId,
+    this.scrollDirection, this.listHeight,
   });
 
   final ProductsModel products;
   final int categoryId;
-
+  final Axis? scrollDirection;
+  final double? listHeight;
   @override
   Widget build(BuildContext context) {
     final filteredProducts = _filterProductsByCategoryId(products, categoryId);
@@ -21,26 +23,30 @@ class ProductsList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 210.h,
+          height:listHeight?? 210.h,
           child: ListView.builder(
-            scrollDirection: Axis.horizontal,
+            scrollDirection: scrollDirection ?? Axis.horizontal,
             itemCount: filteredProducts.length,
             itemBuilder: (context, index) {
               final product = filteredProducts[index];
               return ProductItem(
                 name: product.name ?? "No name",
                 price: product.price ?? "No price",
-                productImage: product.imageLink ?? "https://via.placeholder.com/150",
+                productImage:
+                    product.imageLink ?? "https://via.placeholder.com/150",
                 id: product.id ?? 0,
               );
             },
           ),
+          
         ),
+  
       ],
     );
   }
 
-  List<Result> _filterProductsByCategoryId(ProductsModel products, int categoryId) {
+  List<Result> _filterProductsByCategoryId(
+      ProductsModel products, int categoryId) {
     return products.results
         .where((product) => product.category?.id == categoryId)
         .toList();

@@ -34,4 +34,9 @@ abstract class ApiService {
     @Header('Authorization') String token,
     @Path('id') int id,
   );
+    @GET(ApiConstants.getProductsByCategoryId)
+  Future<ProductsModel> getProductsByCategoryId(
+    @Header('Authorization') String token,
+    @Path('id') int id,
+  );
 }

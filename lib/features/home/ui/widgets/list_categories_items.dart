@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,6 +6,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/helpers/spacing.dart';
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../category/logic/cubit/category_cubit.dart';
 import '../../../category/logic/cubit/category_state.dart';
@@ -50,21 +52,27 @@ class ListCategoriesItems extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: categories.results.length,
               separatorBuilder: (context, index) => SizedBox(width: 15.w),
-              itemBuilder: (context, index) => Column(
-                children: [
-                  CircleAvatar(
-                    backgroundImage: CachedNetworkImageProvider(
-                      categories.results[index].imageLink,
+              itemBuilder: (context, index) => InkWell(
+                onTap: () {
+                  context.pushNamed(Routes.categoryDetailsScreen,
+                      arguments: categories.results[index].id);
+                },
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: CachedNetworkImageProvider(
+                        categories.results[index].imageLink,
+                      ),
+                      radius: 30.r,
                     ),
-                    radius: 30.r,
-                  ),
-                  verticalSpace(7),
-                  Text(
-                    categories.results[index].name,
-                    style: Styles.font12GreyMedium,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
+                    verticalSpace(7),
+                    Text(
+                      categories.results[index].name,
+                      style: Styles.font12GreyMedium,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
