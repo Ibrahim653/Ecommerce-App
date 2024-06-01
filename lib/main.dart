@@ -1,6 +1,4 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce_app/e_commerce_app.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,12 +11,7 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   setupGetIt();
    await CacheHelper.init();
-  runApp(DevicePreview(
-        enabled: !kReleaseMode,
-
-    builder: (BuildContext context) =>
-    EcommerceApp(
-      appRouter: AppRouter(),
-    ),
+  runApp(EcommerceApp(
+    appRouter: AppRouter(),
   ));
 }

@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce_app/core/helpers/constants.dart';
 import 'package:e_commerce_app/core/helpers/shared_prefs_helper.dart';
 import 'package:e_commerce_app/core/routing/routes.dart';
@@ -19,17 +18,14 @@ class EcommerceApp extends StatelessWidget {
       //  splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Ecommerce App',
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-
+        title: 'دكانى',
         theme: ThemeData(
             colorScheme: ColorScheme.fromSwatch(
                 backgroundColor: ColorsManager.appBackgroundColor),
             primaryColor: ColorsManager.mainBlue,
             fontFamily: Constants.fontFamily),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute:  CacheHelper.getString(Constants.autoLogin) == null
+        initialRoute: CacheHelper.getString(Constants.autoLogin) == null
             ? Routes.loginScreen
             : Routes.homeScreen,
       ),

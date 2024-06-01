@@ -17,15 +17,7 @@ class CustomSearchTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(27),
         ),
         child: TextField(
-          onChanged: (value) {
-            // BlocProvider.of<SearchedBooksCubit>(context)
-            //     .fetchSearchedBooks(searchWord: value);
-          },
-          onSubmitted: (value) {
-            // BlocProvider.of<SearchedBooksCubit>(context)
-            //     .fetchSearchedBooks(searchWord: value);
-          },
-          textAlign: TextAlign.right, // Center-align hint text
+          textAlign: TextAlign.right,
           decoration: InputDecoration(
             enabledBorder: buildOutlineInputBorder(),
             focusedBorder: buildOutlineInputBorder(),
